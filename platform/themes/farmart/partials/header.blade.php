@@ -1,19 +1,12 @@
 <!DOCTYPE html>
 <html {!! Theme::htmlAttributes() !!}>
+
 <head>
     <meta charset="utf-8">
-    <meta
-        http-equiv="X-UA-Compatible"
-        content="IE=edge"
-    >
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, user-scalable=1"
-    />
-    <meta
-        name="csrf-token"
-        content="{{ csrf_token() }}"
-    >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5, user-scalable=1" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <style>
         :root {
@@ -43,24 +36,242 @@
 
     @php
         Theme::asset()->remove('language-css');
-        Theme::asset()
-            ->container('footer')
-            ->remove('language-public-js');
-        Theme::asset()
-            ->container('footer')
-            ->remove('simple-slider-owl-carousel-css');
-        Theme::asset()
-            ->container('footer')
-            ->remove('simple-slider-owl-carousel-js');
-        Theme::asset()
-            ->container('footer')
-            ->remove('simple-slider-css');
-        Theme::asset()
-            ->container('footer')
-            ->remove('simple-slider-js');
+        Theme::asset()->container('footer')->remove('language-public-js');
+        Theme::asset()->container('footer')->remove('simple-slider-owl-carousel-css');
+        Theme::asset()->container('footer')->remove('simple-slider-owl-carousel-js');
+        Theme::asset()->container('footer')->remove('simple-slider-css');
+        Theme::asset()->container('footer')->remove('simple-slider-js');
     @endphp
 
     {!! Theme::header() !!}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap" rel="stylesheet">
+    <style>
+        .section-content.section-content__slider .section-slides-wrapper .slide-item .slide-item__image {
+            background-color: none;
+            height: auto;
+            max-height: none;
+        }
+
+        .header .header-bottom {
+            background: #2a2929;
+        }
+
+        .header .header-bottom .menu>li>a {
+            color: #fff;
+        }
+
+        /* van phuoc 1 */
+
+        .vp-section {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .06);
+            padding: clamp(18px, 3vw, 32px);
+            margin: 32px auto;
+            overflow: hidden;
+        }
+
+        .vp-left {
+            border-radius: 12px;
+            background: #f7f3eb;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vp-left img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .vp-handwrite {
+            position: absolute;
+            bottom: 14px;
+            left: 14px;
+            right: 14px;
+            font-family: "Lavishly Yours", cursive;
+            font-size: 1.8rem;
+            color: #333;
+            text-align: center;
+            background: rgba(255, 255, 255, .7);
+            border-radius: 12px;
+            padding: 8px 12px;
+        }
+
+        .vp-tagline {
+            color: #d4b350;
+            font-weight: 800;
+            letter-spacing: .5px;
+            text-transform: uppercase;
+            line-height: 1.3;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .vp-list .icon {
+            width: 28px;
+            height: 28px;
+            display: inline-grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--vp-gold);
+            color: #d4b350;
+            margin-right: .6rem;
+            font-weight: 700;
+            flex: 0 0 28px;
+        }
+
+        .vp-list li {
+            margin-bottom: .65rem;
+            color: var(--vp-dark);
+            font-weight: 600;
+            padding: 20px;
+            font-size: 1.3rem;
+        }
+
+        .vp-mini-card {
+            background: var(--vp-card);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
+            transition: transform .2s ease, box-shadow .2s ease;
+            height: 100%;
+        }
+
+        .vp-mini-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 26px rgba(0, 0, 0, .12);
+        }
+
+        .vp-mini-card .thumb {
+            height: 160px;
+            background: #e9ecef;
+        }
+
+        .vp-mini-card .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .vp-mini-card .title {
+            padding: 12px 14px;
+            font-weight: 800;
+            color: #fff;
+            background: linear-gradient(120deg, rgba(0, 0, 0, .65), rgba(0, 0, 0, .35));
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .vp-mini-wrap {
+            position: relative;
+        }
+
+        .vp-note {
+            color: var(--vp-muted);
+            font-size: .95rem;
+        }
+
+        @media (max-width: 991.98px) {
+            .vp-left {
+                margin-bottom: 16px;
+            }
+        }
+
+        /* giới thiệu */
+        .intro-section {
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .intro-title {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        /* Nút chính “Giới thiệu” */
+        .intro-badge {
+            background-image: url('https://traihomvanphuoc.b-cdn.net/general/234d9d9c-8b86-46fa-9713-d052b0ca0111.webp');
+            padding-left: 30px;
+            padding-right: 30px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-weight: bolder;
+            color:#847b61;
+            background-position: center;
+            background-repeat: repeat-x;
+            background-size: contain;
+            display: inline-block;
+            position: relative;
+        }
+
+        /* Hoa bên trái */
+        .intro-badge::before {
+            content: "";
+            position: absolute;
+            left: -90px;
+            top: 50%;
+            transform: translateY(-48%);
+            width: 100px;
+            height: 80px;
+            background: url('https://traihomvanphuoc.b-cdn.net/general/b8231c40-55f3-4579-a8e3-505cd4a90712.webp') no-repeat center/contain;
+            z-index: 1;
+        }
+
+        /* Hoa bên phải */
+        .intro-badge::after {
+            content: "";
+            position: absolute;
+            right: -90px;
+            top: 50%;
+            transform: translateY(-48%);
+            width: 100px;
+            height: 80px;
+            background: url('https://traihomvanphuoc.b-cdn.net/general/99e2c988-211c-4e0d-a653-bc77206636b7.webp') no-repeat center/contain;
+            z-index: 1;
+        }
+
+
+        .intro-body p {
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .intro-subtitle {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #c6931f;
+            margin-top: 1.5rem;
+        }
+
+        .intro-footer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 2rem;
+            gap: 1rem;
+        }
+
+        .intro-card {
+            flex: 1 1 280px;
+            background: #fff3da;
+            border-radius: 12px;
+            padding: 1rem 1.2rem;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .intro-card h5 {
+            font-weight: 700;
+            color: #d69b2a;
+            margin-bottom: .6rem;
+        }
+    </style>
 </head>
 
 <body {!! Theme::bodyAttributes() !!}>
@@ -71,11 +282,9 @@
     {!! Theme::partial('svg-icons') !!}
     {!! apply_filters(THEME_FRONT_BODY, null) !!}
 
-    <header
-        class="header header-js-handler"
-        data-sticky="{{ theme_option('sticky_header_enabled', 'yes') == 'yes' ? 'true' : 'false' }}"
-    >
-        <div @class([
+    <header class="header header-js-handler"
+        data-sticky="{{ theme_option('sticky_header_enabled', 'yes') == 'yes' ? 'true' : 'false' }}">
+        {{-- <div @class([
             'header-top d-none d-lg-block',
             'header-content-sticky' =>
                 theme_option('sticky_header_content_position', 'middle') == 'top',
@@ -146,8 +355,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div @class([
+        </div> --}}
+        {{-- <div @class([
             'header-middle',
             'header-content-sticky' =>
                 theme_option('sticky_header_content_position', 'middle') == 'middle',
@@ -295,7 +504,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div @class([
             'header-bottom',
             'header-content-sticky' =>
@@ -305,37 +514,25 @@
                 <nav class="navigation">
                     <div class="container-xxxl">
                         <div class="navigation__left">
-                            @if (is_plugin_active('ecommerce') && theme_option('enabled_product_categories_on_header', 'yes') == 'yes')
-                                <div class="menu--product-categories">
-                                    <div class="menu__toggle">
-                                        <span class="svg-icon">
-                                            <svg>
-                                                <use
-                                                    href="#svg-icon-list"
-                                                    xlink:href="#svg-icon-list"
-                                                ></use>
-                                            </svg>
-                                        </span>
-                                        <span class="menu__toggle-title">{{ __('Shop by Category') }}</span>
-                                    </div>
-                                    <div
-                                        class="menu__content"
-                                        data-bb-toggle="init-categories-dropdown"
-                                        data-bb-target=".menu--dropdown"
-                                        data-url="{{ route('public.ajax.categories-dropdown') }}"
-                                    >
-                                        <ul class="menu--dropdown"></ul>
-                                    </div>
+                            <div class="header-items header-items-mobile--center">
+                                <div class="logo">
+                                    <a href="{{ BaseHelper::getHomepageUrl() }}">
+                                        {!! Theme::getLogoImage(['style' => 'max-height: 45px']) !!}
+                                    </a>
                                 </div>
-                            @endif
+                            </div>
                         </div>
-                        <div @class(['navigation__center', 'ps-0' => theme_option('enabled_product_categories_on_header', 'yes') != 'yes'])>
+                        <div @class([
+                            'navigation__center',
+                            'ps-0' =>
+                                theme_option('enabled_product_categories_on_header', 'yes') != 'yes',
+                        ])>
                             {!! Menu::renderMenuLocation('main-menu', [
                                 'view' => 'menu',
                                 'options' => ['class' => 'menu'],
                             ]) !!}
                         </div>
-                        <div class="navigation__right">
+                        {{-- <div class="navigation__right">
                             @if (is_plugin_active('ecommerce') && EcommerceHelper::isEnabledCustomerRecentlyViewedProducts())
                                 <div
                                     class="header-recently-viewed"
@@ -363,28 +560,20 @@
                                     </div>
                                 </div>
                             @endif
-                        </div>
+                        </div> --}}
                     </div>
                 </nav>
             </div>
         </div>
-        <div
-            class="header-mobile header-js-handler"
-            data-sticky="{{ theme_option('sticky_header_mobile_enabled', 'yes') == 'yes' ? 'true' : 'false' }}"
-        >
+        <div class="header-mobile header-js-handler"
+            data-sticky="{{ theme_option('sticky_header_mobile_enabled', 'yes') == 'yes' ? 'true' : 'false' }}">
             <div class="header-items-mobile header-items-mobile--left">
                 <div class="menu-mobile">
                     <div class="menu-box-title">
-                        <div
-                            class="icon menu-icon toggle--sidebar"
-                            href="#menu-mobile"
-                        >
+                        <div class="icon menu-icon toggle--sidebar" href="#menu-mobile">
                             <span class="svg-icon">
                                 <svg>
-                                    <use
-                                        href="#svg-icon-list"
-                                        xlink:href="#svg-icon-list"
-                                    ></use>
+                                    <use href="#svg-icon-list" xlink:href="#svg-icon-list"></use>
                                 </svg>
                             </span>
                         </div>
@@ -400,17 +589,10 @@
             </div>
             <div class="header-items-mobile header-items-mobile--right">
                 <div class="search-form--mobile search-form--mobile-right search-panel">
-                    <a
-                        class="open-search-panel toggle--sidebar"
-                        href="#search-mobile"
-                        title="{{ __('Search') }}"
-                    >
+                    <a class="open-search-panel toggle--sidebar" href="#search-mobile" title="{{ __('Search') }}">
                         <span class="svg-icon">
                             <svg>
-                                <use
-                                    href="#svg-icon-search"
-                                    xlink:href="#svg-icon-search"
-                                ></use>
+                                <use href="#svg-icon-search" xlink:href="#svg-icon-search"></use>
                             </svg>
                         </span>
                     </a>

@@ -13,13 +13,13 @@
         ];
     @endphp
     <div
-        class="section-content section-content__slider lazyload"
-        @if ($shortcode->background) data-bg="{{ RvMedia::getImageUrl($shortcode->background) }}" @endif
+        class="section-content section-content__slider lazyload p-2" style="background: none"
+        {{-- @if ($shortcode->background) data-bg="{{ RvMedia::getImageUrl($shortcode->background) }}" @endif --}}
     >
         <div class="container-xxxl">
             <div class="row gx-0 gx-md-4">
-                <div class="@if (is_plugin_active('ads') && $shortcode->ads) col-md-8 @else col-md-12 @endif">
-                    <div class="section-slides-wrapper my-3">
+                <div class="@if (is_plugin_active('ads') && $shortcode->ads) col-md-12 @else col-md-12 @endif">
+                    <div class="section-slides-wrapper">
                         <div
                             class="slide-body slick-slides-carousel"
                             data-slick="{{ json_encode($slick) }}"
@@ -63,7 +63,7 @@
                         <div class="arrows-wrapper"></div>
                     </div>
                 </div>
-                @if (is_plugin_active('ads') && $shortcode->ads)
+                {{-- @if (is_plugin_active('ads') && $shortcode->ads)
                     <div class="col-md-4">
                         <div class="section-banner-wrapper my-3">
                             <div class="banner-medium">
@@ -73,7 +73,7 @@
                             </div>
                         </div>
                     </div>
-                @endif
+                @endif --}}
             </div>
         </div>
     </div>

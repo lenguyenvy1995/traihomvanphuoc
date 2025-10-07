@@ -23,6 +23,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Theme\Farmart\Supports\Wishlist;
+use Botble\Base\Forms\Fields\TextField;
+use Botble\Base\Forms\Fields\NumberField;
+use Botble\Base\Forms\FieldOptions\TextFieldOption;
+use Botble\Shortcode\Compilers\Shortcode as ShortcodeCompiler;
 
 app()->booted(function (): void {
     ThemeSupport::registerGoogleMapsShortcode();
@@ -846,4 +850,51 @@ app()->booted(function (): void {
                 'shortcode_attributes' => $attributes,
             ]);
     });
+    //SHORTCODE VANPHUOC 1
+    ShortcodeFacade::register('van-phuoc-1', 'Vạn Phước 1', '', function ($shortcode) {
+        $tabs = shortcode()->fields()->getTabsData(['title', 'content'], $shortcode);
+    
+        return view('theme.shortcodes.van-phuoc-1', compact('shortcode', 'tabs'));
+    });
+    ShortcodeFacade::register(
+        'van-phuoc-1',
+        'Vạn Phước 1',
+        'Xin chào a Vạn Phước nhá',
+        function (ShortcodeCompiler $shortcode) {
+            // Get posts from the database
+            $posts = get_featured_posts((int) $shortcode->limit ?: 5, [
+                'author',
+            ]);
+    
+            if ($posts->isEmpty()) {
+                return null;
+            }
+    
+            // Render the shortcode view
+            return Theme::partial('shortcodes.van-phuoc-1', compact('posts', 'shortcode'));
+        }
+    );
+    ShortcodeFacade::setPreviewImage('van-phuoc-1', Theme::asset()->url('https://traihomvanphuoc.b-cdn.net/shortcode/ebad8e88-caf9-4f49-8d67-ca7c63d217ef.webp'));
+    // giới thiệu van phước
+    ShortcodeFacade::register(
+        'gioi-thieu-vp',
+        'Giới Thiệu Vạn Phước',
+        'Giới thiệu a Vạn Phước nghen',
+        function (ShortcodeCompiler $shortcode) {
+            // Get posts from the database
+            $posts = get_featured_posts((int) $shortcode->limit ?: 5, [
+                'author',
+            ]);
+    
+            if ($posts->isEmpty()) {
+                return null;
+            }
+    
+            // Render the shortcode view
+            return Theme::partial('shortcodes.gioi-thieu', compact('posts', 'shortcode'));
+        }
+    );
+    ShortcodeFacade::setPreviewImage('gioi-thieu-vp', Theme::asset()->url('https://traihomvanphuoc.b-cdn.net/shortcode/gioi-thieu/988cfc74-5801-4a13-8bac-9859da1c6fec.webp'));
+
+
 });
