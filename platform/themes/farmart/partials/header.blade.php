@@ -47,6 +47,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+
     <style>
         .section-content.section-content__slider .section-slides-wrapper .slide-item .slide-item__image {
             background-color: none;
@@ -187,11 +189,13 @@
         .intro-section {
             border-radius: 16px;
             padding: 2rem;
+            background-color: #ffffff96;
+            color: #000;
         }
 
         .intro-title {
             text-align: center;
-            margin-bottom: 1rem;
+            margin-bottom: 2.5rem;
         }
 
         /* Nút chính “Giới thiệu” */
@@ -202,12 +206,14 @@
             padding-top: 10px;
             padding-bottom: 10px;
             font-weight: bolder;
-            color:#847b61;
+            color: #847b61;
             background-position: center;
             background-repeat: repeat-x;
             background-size: contain;
             display: inline-block;
             position: relative;
+            font-size: 20px;
+            line-height: 1.3;
         }
 
         /* Hoa bên trái */
@@ -218,7 +224,7 @@
             top: 50%;
             transform: translateY(-48%);
             width: 100px;
-            height: 80px;
+            height: 100px;
             background: url('https://traihomvanphuoc.b-cdn.net/general/b8231c40-55f3-4579-a8e3-505cd4a90712.webp') no-repeat center/contain;
             z-index: 1;
         }
@@ -231,7 +237,7 @@
             top: 50%;
             transform: translateY(-48%);
             width: 100px;
-            height: 80px;
+            height: 100px;
             background: url('https://traihomvanphuoc.b-cdn.net/general/99e2c988-211c-4e0d-a653-bc77206636b7.webp') no-repeat center/contain;
             z-index: 1;
         }
@@ -240,6 +246,7 @@
         .intro-body p {
             line-height: 1.7;
             margin-bottom: 1rem;
+            color: #000000;
         }
 
         .intro-subtitle {
@@ -259,17 +266,116 @@
 
         .intro-card {
             flex: 1 1 280px;
-            background: #fff3da;
+            background: #fff3da73;
             border-radius: 12px;
             padding: 1rem 1.2rem;
             text-align: center;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            color: #000000;
+        }
+
+        .intro-card p {
+            color: #000000;
         }
 
         .intro-card h5 {
             font-weight: 700;
             color: #d69b2a;
             margin-bottom: .6rem;
+        }
+
+        /* home dịch vụ */
+
+        .service-bg {
+            background-color: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(3px);
+        }
+
+        .service-list li {
+            margin-bottom: 0.7rem;
+            color: #333;
+        }
+
+        .service-list ol {
+            list-style-type: decimal;
+            /* bật lại số thứ tự */
+            list-style-position: inside;
+            /* cho marker nằm trong */
+            padding-left: 1rem;
+            /* tuỳ chỉnh khoảng cách */
+        }
+
+        .service-list li::marker {
+            color: #d6a633;
+            font-weight: bold;
+        }
+
+        .dich-vu-mai-tang {
+            border-radius: 12px;
+        }
+
+        .dich-vu-mai-tang .deco-left {
+            left: 10%;
+            top: -20px;
+            width: 50px;
+        }
+
+        .dich-vu-mai-tang .deco-right {
+            right: 10%;
+            top: -20px;
+            width: 50px;
+        }
+
+        .service-item img {
+            transition: transform 0.4s ease;
+        }
+
+        .service-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .service-title {
+            background: #21252973;
+        }
+
+        /* hình ảnh thực tế */
+        .widget-blog {
+            background: none;
+        }
+
+        .widget-header h2 {
+            color: #c6931f;
+        }
+
+        /* blog */
+  
+
+        .news-featured img {
+            transition: all 0.3s ease;
+        }
+
+        .news-featured img:hover {
+            transform: scale(1.02);
+        }
+
+        .news-item h6 {
+            font-size: 0.95rem;
+            color: #000;
+            transition: 0.3s;
+        }
+
+        .news-item:hover h6 a {
+            color: #b8860b;
+        }
+
+        .news-item p {
+            color: #444;
+        }
+
+        @media (max-width: 767px) {
+            .news-featured img {
+                height: auto;
+            }
         }
     </style>
 </head>

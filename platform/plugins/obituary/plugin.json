@@ -1,0 +1,8 @@
+{
+    "name": "Cáo Phó",
+    "namespace": "Botble\\Obituary\\",
+    "provider": "Botble\\Obituary\\Providers\\ObituaryServiceProvider",
+    "author": "Tivatech",
+    "version": "1.0.0",
+    "description": "Plugin quản lý và hiển thị danh sách cáo phó."
+  }

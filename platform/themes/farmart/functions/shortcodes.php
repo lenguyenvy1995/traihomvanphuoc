@@ -3,6 +3,7 @@
 use Botble\Ads\Facades\AdsManager;
 use Botble\Base\Facades\BaseHelper;
 use Botble\Base\Forms\Fields\MediaImageField;
+use Botble\Base\Forms\FieldOptions\MediaImageFieldOption;
 use Botble\Contact\Forms\Fronts\ContactForm;
 use Botble\Contact\Forms\ShortcodeContactAdminConfigForm;
 use Botble\Ecommerce\Facades\EcommerceHelper;
@@ -25,8 +26,18 @@ use Illuminate\Support\Str;
 use Theme\Farmart\Supports\Wishlist;
 use Botble\Base\Forms\Fields\TextField;
 use Botble\Base\Forms\Fields\NumberField;
+use Botble\Base\Forms\Fields\RadioField;
 use Botble\Base\Forms\FieldOptions\TextFieldOption;
+use Botble\Base\Forms\FieldOptions\RadioFieldOption;
 use Botble\Shortcode\Compilers\Shortcode as ShortcodeCompiler;
+use Botble\Base\Forms\Fields\EditorField;
+use Botble\Base\Forms\FieldOptions\EditorFieldOption;
+use Botble\Base\Forms\Fields\TextareaField;
+use Botble\Base\Forms\FieldOptions\TextareaFieldOption;
+use Botble\Base\Forms\Fields\RepeaterField;
+use Botble\Base\Forms\FieldOptions\RepeaterFieldOption;
+use Botble\Blog\Models\Post;
+
 
 app()->booted(function (): void {
     ThemeSupport::registerGoogleMapsShortcode();
@@ -678,37 +689,37 @@ app()->booted(function (): void {
             $form->add('contact_box_' . $i . '_start', 'html', [
                 'html' => '<div class="p-2 border mb-2">',
             ])
-            ->add('name_' . $i, 'text', [
-                'label' => __('Name :number', ['number' => $i]),
-                'value' => Arr::get($attributes, 'name_' . $i),
-                'placeholder' => __('Name :number', ['number' => $i]),
-            ])
-            ->add('address_' . $i, 'text', [
-                'label' => __('Address :number', ['number' => $i]),
-                'value' => Arr::get($attributes, 'address_' . $i),
-                'placeholder' => __('Address :number', ['number' => $i]),
-            ])
-            ->add('phone_' . $i, 'text', [
-                'label' => __('Phone :number', ['number' => $i]),
-                'value' => Arr::get($attributes, 'phone_' . $i),
-                'placeholder' => __('Phone :number', ['number' => $i]),
-            ])
-            ->add('email_' . $i, 'text', [
-                'label' => __('Email :number', ['number' => $i]),
-                'value' => Arr::get($attributes, 'email_' . $i),
-                'placeholder' => __('Email :number', ['number' => $i]),
-            ])
-            ->add('contact_box_' . $i . '_end', 'html', [
-                'html' => '</div>',
-            ]);
+                ->add('name_' . $i, 'text', [
+                    'label' => __('Name :number', ['number' => $i]),
+                    'value' => Arr::get($attributes, 'name_' . $i),
+                    'placeholder' => __('Name :number', ['number' => $i]),
+                ])
+                ->add('address_' . $i, 'text', [
+                    'label' => __('Address :number', ['number' => $i]),
+                    'value' => Arr::get($attributes, 'address_' . $i),
+                    'placeholder' => __('Address :number', ['number' => $i]),
+                ])
+                ->add('phone_' . $i, 'text', [
+                    'label' => __('Phone :number', ['number' => $i]),
+                    'value' => Arr::get($attributes, 'phone_' . $i),
+                    'placeholder' => __('Phone :number', ['number' => $i]),
+                ])
+                ->add('email_' . $i, 'text', [
+                    'label' => __('Email :number', ['number' => $i]),
+                    'value' => Arr::get($attributes, 'email_' . $i),
+                    'placeholder' => __('Email :number', ['number' => $i]),
+                ])
+                ->add('contact_box_' . $i . '_end', 'html', [
+                    'html' => '</div>',
+                ]);
         }
 
         $form->add('contact_info_boxes_help', 'html', [
             'html' => '<div class="help-block"><small>' . __('You can add up to 3 contact info boxes, to show is required Name and Address') . '</small></div>',
         ])
-        ->add('contact_info_boxes_end', 'html', [
-            'html' => '</div>',
-        ]);
+            ->add('contact_info_boxes_end', 'html', [
+                'html' => '</div>',
+            ]);
 
         if (is_plugin_active('contact')) {
             $form->add('show_contact_form', 'customSelect', [
@@ -853,7 +864,7 @@ app()->booted(function (): void {
     //SHORTCODE VANPHUOC 1
     ShortcodeFacade::register('van-phuoc-1', 'Vạn Phước 1', '', function ($shortcode) {
         $tabs = shortcode()->fields()->getTabsData(['title', 'content'], $shortcode);
-    
+
         return view('theme.shortcodes.van-phuoc-1', compact('shortcode', 'tabs'));
     });
     ShortcodeFacade::register(
@@ -865,11 +876,11 @@ app()->booted(function (): void {
             $posts = get_featured_posts((int) $shortcode->limit ?: 5, [
                 'author',
             ]);
-    
+
             if ($posts->isEmpty()) {
                 return null;
             }
-    
+
             // Render the shortcode view
             return Theme::partial('shortcodes.van-phuoc-1', compact('posts', 'shortcode'));
         }
@@ -881,20 +892,196 @@ app()->booted(function (): void {
         'Giới Thiệu Vạn Phước',
         'Giới thiệu a Vạn Phước nghen',
         function (ShortcodeCompiler $shortcode) {
-            // Get posts from the database
-            $posts = get_featured_posts((int) $shortcode->limit ?: 5, [
-                'author',
-            ]);
-    
-            if ($posts->isEmpty()) {
-                return null;
-            }
-    
             // Render the shortcode view
-            return Theme::partial('shortcodes.gioi-thieu', compact('posts', 'shortcode'));
+            return Theme::partial('shortcodes.gioi-thieu', compact('shortcode'));
         }
     );
     ShortcodeFacade::setPreviewImage('gioi-thieu-vp', Theme::asset()->url('https://traihomvanphuoc.b-cdn.net/shortcode/gioi-thieu/988cfc74-5801-4a13-8bac-9859da1c6fec.webp'));
+    //gói hoả táng dịch vụ
 
+    ShortcodeFacade::register(
+        'home-dich-vu',
+        'Danh sách dịch vụ',
+        'Hiển thị danh sách dịch vụ dạng 2 cột',
+        function ($shortcode) {
+            $services = shortcode()->fields()->getTabsData(['title', 'URL'], $shortcode);
 
+            return Theme::partial('shortcodes.home-dich-vu', compact('services', 'shortcode'));
+        }
+    );
+
+    ShortcodeFacade::setAdminConfig('home-dich-vu', function (array $attributes) {
+        $fields = [
+            'title' => [
+                'title' => __('Title'),
+                'required' => true,
+            ],
+            'url' => [
+                'title' => __('URL'),
+            ],
+        ];
+
+        return ShortcodeForm::createFromArray($attributes)
+            ->add('title', 'text', [
+                'label' => __('Title'),
+            ])
+            ->add('image', MediaImageField::class, [
+                'label' => __('Hình ảnh'),
+                'value' => Arr::get($attributes, 'image'),
+            ])
+            ->add(
+                'position',
+                RadioField::class,
+                RadioFieldOption::make()
+                    ->label(__('Vị trí Hình'))
+                    ->choices([
+                        'left'  => 'Bên trái',
+                        'right' => 'Bên phải',
+                    ])
+            )
+            ->add('Dịch Vụ', 'tabs', [
+                'fields' => $fields,
+                'shortcode_attributes' => $attributes,
+            ])
+            ->withCaching(false)
+        ;
+    });
+    ShortcodeFacade::setPreviewImage('home-dich-vu', Theme::asset()->url('https://traihomvanphuoc.b-cdn.net/shortcode/home-dich-vu/9a5f9934-b590-4f3e-8a7c-504f3144c752.webp'));
+    //dịch vụ mẫu 2
+    ShortcodeFacade::register(
+        'home-dich-vu2',
+        'Dịch vụ mẫu 2',
+        'Hiển thị danh sách dịch vụ dạng 2 cột',
+        function ($shortcode) {
+            $services = shortcode()->fields()->getTabsData(['title', 'URL'], $shortcode);
+
+            return Theme::partial('shortcodes.home-dich-vu2', compact('services', 'shortcode'));
+        }
+    );
+
+    ShortcodeFacade::setAdminConfig('home-dich-vu2', function (array $attributes) {
+        return ShortcodeForm::createFromArray($attributes)
+            ->add('title', 'text', [
+                'label' => __('Title'),
+            ])
+            ->add('url', 'text', [
+                'label' => __('Url'),
+            ])
+            ->add('image', MediaImageField::class, [
+                'label' => __('Hình ảnh'),
+                'value' => Arr::get($attributes, 'image'),
+            ])
+            ->add(
+                'position',
+                RadioField::class,
+                RadioFieldOption::make()
+                    ->label(__('Vị trí Hình'))
+                    ->choices([
+                        'left'  => 'Bên trái',
+                        'right' => 'Bên phải',
+                    ])
+            )
+            ->add('title2', 'text', [
+                'label' => __('Tiêu đề 2'),
+            ])
+            ->add('description', TextareaField::class, TextareaFieldOption::make())
+            ->withCaching(false)
+        ;
+    });
+    ShortcodeFacade::setPreviewImage('home-dich-vu2', Theme::asset()->url('https://traihomvanphuoc.b-cdn.net/shortcode/home-dich-vu/56300256-da53-4d71-a8ff-d788d3b3bb88.webp'));
+    //dịch vụ mẫu 3
+    ShortcodeFacade::register(
+        'home-dich-vu3',
+        'Dịch vụ mẫu 3',
+        'Hiển thị danh sách dịch vụ dạng 2 cột',
+        function ($shortcode) {
+            $services = shortcode()->fields()->getTabsData(['title','image', 'URL'], $shortcode);
+
+            return Theme::partial('shortcodes.home-dich-vu3', compact('services', 'shortcode'));
+        }
+    );
+    ShortcodeFacade::setAdminConfig('home-dich-vu3', function (array $attributes) {
+        $fields = [
+            'title' => [
+                'title' => __('Title'),
+                'required' => true,
+            ],
+            'url' => [
+                'title' => __('URL'),
+            ],
+            'image' => [
+                'type' => 'mediaImage',
+                'label' => 'Image',
+                'attributes' => [
+                    'name' => 'image',
+                    'value' => null,
+                ],
+            ],
+        ];
+
+        return ShortcodeForm::createFromArray($attributes)
+            ->add('title', 'text', [
+                'label' => __('Title'),
+            ])
+            ->add('Dịch Vụ', 'tabs', [
+                'fields' => $fields,
+                'shortcode_attributes' => $attributes,
+            ])
+            ->withCaching(false)
+        ;
+    });
+    ShortcodeFacade::setPreviewImage('home-dich-vu3', Theme::asset()->url('https://traihomvanphuoc.b-cdn.net/shortcode/home-dich-vu/9a25d068-3968-426d-8f48-f4066412fb78.webp'));
+    //hình ảnh thực tế
+    ShortcodeFacade::register(
+        'home-hinh-anh-thuc-te',
+        'Slider hình ảnh thực tế',
+        'Hiển thị slider hình ảnh thực tế bằng Bootstrap 5',
+        function ($shortcode) {
+            $images = shortcode()->fields()->getTabsData(['title','image', 'URL'], $shortcode);
+
+            return Theme::partial('shortcodes.home-hinh-anh-thuc-te', compact('images','shortcode'));
+        }
+    );
+    
+    ShortcodeFacade::setAdminConfig('home-hinh-anh-thuc-te', function (array $attributes) {
+        $fields = [
+            'title' => [
+                'title' => __('Title'),
+                'required' => true,
+            ],
+            'url' => [
+                'title' => __('URL'),
+            ],
+            'image' => [
+                'type' => 'mediaImage',
+                'label' => 'Image',
+                'attributes' => [
+                    'name' => 'image',
+                    'value' => null,
+                ],
+            ],
+        ];
+
+        return ShortcodeForm::createFromArray($attributes)
+            ->add('title', 'text', [
+                'label' => __('Title'),
+            ])
+            ->add('Hình ảnh thực tế', 'tabs', [
+                'fields' => $fields,
+                'shortcode_attributes' => $attributes,
+            ])
+            ->withCaching(false)
+        ;
+    });
+    ShortcodeFacade::setPreviewImage('home-hinh-anh-thuc-te', Theme::asset()->url('https://traihomvanphuoc.b-cdn.net/shortcode/hinh-anh-thuc-te/cc82972a-f6c1-4e9a-8f31-3f44f6284346.webp'));
+    // tin tức 
+    ShortcodeFacade::register('home-tin-tuc', 'Tin tức', 'Hiển thị danh sách tin tức', function ($shortcode) {
+        $posts = Post::query()
+            ->wherePublished()
+            ->orderByDesc('created_at')
+            ->limit(5)
+            ->get();
+    
+        return Theme::partial('shortcodes.home-tin-tuc', compact('posts', 'shortcode'));
+    });
 });

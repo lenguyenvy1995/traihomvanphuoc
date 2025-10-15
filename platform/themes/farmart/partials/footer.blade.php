@@ -1,11 +1,11 @@
     <footer id="footer">
-        @if ($preFooterSidebar = dynamic_sidebar('pre_footer_sidebar'))
+        {{-- @if ($preFooterSidebar = dynamic_sidebar('pre_footer_sidebar'))
             <div class="footer-info border-top">
                 <div class="container-xxxl py-3">
                     {!! $preFooterSidebar !!}
                 </div>
             </div>
-        @endif
+        @endif --}}
         @if ($footerSidebar = dynamic_sidebar('footer_sidebar'))
             <div class="footer-widgets">
                 <div class="container-xxxl">
@@ -15,16 +15,13 @@
                 </div>
             </div>
         @endif
-        @if ($bottomFooterSidebar = dynamic_sidebar('bottom_footer_sidebar'))
+        {{-- @if ($bottomFooterSidebar = dynamic_sidebar('bottom_footer_sidebar'))
             <div class="container-xxxl">
-                <div
-                    class="footer__links"
-                    id="footer-links"
-                >
+                <div class="footer__links" id="footer-links">
                     {!! $bottomFooterSidebar !!}
                 </div>
             </div>
-        @endif
+        @endif --}}
         <div class="container-xxxl">
             <div class="row border-top py-4">
                 <div class="col-lg-3 col-md-4 py-3">
@@ -36,17 +33,12 @@
                     @if (theme_option('payment_methods_image'))
                         <div class="footer-payments d-flex justify-content-center">
                             @if (theme_option('payment_methods_link'))
-                                <a
-                                    href="{{ url(theme_option('payment_methods_link')) }}"
-                                    target="_blank"
-                                >
+                                <a href="{{ url(theme_option('payment_methods_link')) }}" target="_blank">
                             @endif
 
-                            <img
-                                class="lazyload"
+                            <img class="lazyload"
                                 data-src="{{ RvMedia::getImageUrl(theme_option('payment_methods_image')) }}"
-                                alt="footer-payments"
-                            >
+                                alt="footer-payments">
 
                             @if (theme_option('payment_methods_link'))
                                 </a>
@@ -60,8 +52,8 @@
                             <p class="me-3 mb-0">{{ __('Stay connected:') }}</p>
                             <div class="footer-socials-container">
                                 <ul class="ps-0 mb-0">
-                                    @foreach($socialLinks as $socialLink)
-                                        @continue(! $socialLink->getUrl() || ! $socialLink->getIconHtml())
+                                    @foreach ($socialLinks as $socialLink)
+                                        @continue(!$socialLink->getUrl() || !$socialLink->getIconHtml())
 
                                         <li class="d-inline-block ps-1 my-1">
                                             <a {!! $socialLink->getAttributes() !!}>{{ $socialLink->getIconHtml() }}</a>
@@ -76,43 +68,28 @@
         </div>
     </footer>
     @if (is_plugin_active('ecommerce'))
-        <div
-            class="panel--sidebar"
-            id="navigation-mobile"
-        >
+        <div class="panel--sidebar" id="navigation-mobile">
             <div class="panel__header">
                 <span class="svg-icon close-toggle--sidebar">
                     <svg>
-                        <use
-                            href="#svg-icon-arrow-left"
-                            xlink:href="#svg-icon-arrow-left"
-                        ></use>
+                        <use href="#svg-icon-arrow-left" xlink:href="#svg-icon-arrow-left"></use>
                     </svg>
                 </span>
                 <h3>{{ __('Categories') }}</h3>
             </div>
-            <div
-                class="panel__content"
-                data-bb-toggle="init-categories-dropdown"
+            <div class="panel__content" data-bb-toggle="init-categories-dropdown"
                 data-bb-target=".product-category-dropdown-wrapper"
-                data-url="{{ route('public.ajax.categories-dropdown') }}"
-            >
+                data-url="{{ route('public.ajax.categories-dropdown') }}">
                 <ul class="menu--mobile product-category-dropdown-wrapper"></ul>
             </div>
         </div>
     @endif
 
-    <div
-        class="panel--sidebar"
-        id="menu-mobile"
-    >
+    <div class="panel--sidebar" id="menu-mobile">
         <div class="panel__header">
             <span class="svg-icon close-toggle--sidebar">
                 <svg>
-                    <use
-                        href="#svg-icon-arrow-left"
-                        xlink:href="#svg-icon-arrow-left"
-                    ></use>
+                    <use href="#svg-icon-arrow-left" xlink:href="#svg-icon-arrow-left"></use>
                 </svg>
             </span>
             <h3>{{ __('Menu') }}</h3>
@@ -142,10 +119,8 @@
                                 <span class="sub-toggle">
                                     <span class="svg-icon">
                                         <svg>
-                                            <use
-                                                href="#svg-icon-chevron-down"
-                                                xlink:href="#svg-icon-chevron-down"
-                                            ></use>
+                                            <use href="#svg-icon-chevron-down" xlink:href="#svg-icon-chevron-down">
+                                            </use>
                                         </svg>
                                     </span>
                                 </span>
@@ -182,10 +157,8 @@
                                 <span class="sub-toggle">
                                     <span class="svg-icon">
                                         <svg>
-                                            <use
-                                                href="#svg-icon-chevron-down"
-                                                xlink:href="#svg-icon-chevron-down"
-                                            ></use>
+                                            <use href="#svg-icon-chevron-down" xlink:href="#svg-icon-chevron-down">
+                                            </use>
                                         </svg>
                                     </span>
                                 </span>
@@ -213,43 +186,27 @@
             </ul>
         </div>
     </div>
-    <div
-        class="panel--sidebar panel--sidebar__right"
-        id="search-mobile"
-    >
+    <div class="panel--sidebar panel--sidebar__right" id="search-mobile">
         <div class="panel__header">
             @if (is_plugin_active('ecommerce'))
                 <x-plugins-ecommerce::fronts.ajax-search class="form--quick-search bb-form-quick-search w-100">
                     <div class="search-inner-content">
                         <div class="text-search">
                             <div class="search-wrapper">
-                                <x-plugins-ecommerce::fronts.ajax-search.input type="text" class="search-field input-search-product" />
-                                <button
-                                    class="btn"
-                                    type="submit"
-                                    aria-label="Submit"
-                                >
+                                <x-plugins-ecommerce::fronts.ajax-search.input type="text"
+                                    class="search-field input-search-product" />
+                                <button class="btn" type="submit" aria-label="Submit">
                                     <span class="svg-icon">
                                         <svg>
-                                            <use
-                                                href="#svg-icon-search"
-                                                xlink:href="#svg-icon-search"
-                                            ></use>
+                                            <use href="#svg-icon-search" xlink:href="#svg-icon-search"></use>
                                         </svg>
                                     </span>
                                 </button>
                             </div>
-                            <a
-                                class="close-search-panel close-toggle--sidebar"
-                                href="#"
-                                aria-label="Search"
-                            >
+                            <a class="close-search-panel close-toggle--sidebar" href="#" aria-label="Search">
                                 <span class="svg-icon">
                                     <svg>
-                                        <use
-                                            href="#svg-icon-times"
-                                            xlink:href="#svg-icon-times"
-                                        ></use>
+                                        <use href="#svg-icon-times" xlink:href="#svg-icon-times"></use>
                                     </svg>
                                 </span>
                             </a>
@@ -259,7 +216,8 @@
             @endif
         </div>
     </div>
-    <div class="footer-mobile" @if(theme_option('bottom_bar_menu_show_text', 'yes') != 'yes')data-hide-text="true"@endif style="--bottom-bar-menu-text-font-size: {{ theme_option('bottom_bar_menu_text_font_size', 11) }}px;">
+    <div class="footer-mobile" @if (theme_option('bottom_bar_menu_show_text', 'yes') != 'yes') data-hide-text="true" @endif
+        style="--bottom-bar-menu-text-font-size: {{ theme_option('bottom_bar_menu_text_font_size', 11) }}px;">
         <ul class="menu--footer">
             <li>
                 <a href="{{ BaseHelper::getHomepageUrl() }}">
@@ -269,20 +227,14 @@
             </li>
             @if (is_plugin_active('ecommerce'))
                 <li>
-                    <a
-                        class="toggle--sidebar"
-                        href="#navigation-mobile"
-                    >
+                    <a class="toggle--sidebar" href="#navigation-mobile">
                         <i class="icon-list"></i>
                         <span>{{ __('Category') }}</span>
                     </a>
                 </li>
                 @if (EcommerceHelper::isCartEnabled())
                     <li>
-                        <a
-                            class="toggle--sidebar"
-                            href="#cart-mobile"
-                        >
+                        <a class="toggle--sidebar" href="#cart-mobile">
                             <i class="icon-cart">
                                 <span class="cart-counter">{{ Cart::instance('cart')->count() }}</span>
                             </i>
@@ -317,10 +269,7 @@
     <div id="back2top">
         <span class="svg-icon">
             <svg>
-                <use
-                    href="#svg-icon-arrow-up"
-                    xlink:href="#svg-icon-arrow-up"
-                ></use>
+                <use href="#svg-icon-arrow-up" xlink:href="#svg-icon-arrow-up"></use>
             </svg>
         </span>
     </div>
@@ -349,8 +298,15 @@
             window.siteConfig.cartUrl = "{{ route('public.cart') }}";
         @endif
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 
+    <script>
+        Fancybox.bind("[data-fancybox]", {
+          // Your custom options
+        });
+      </script>
     {!! Theme::footer() !!}
 
     </body>
-</html>
+
+    </html>

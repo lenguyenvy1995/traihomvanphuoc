@@ -1,5 +1,5 @@
 <div class="section-vp1">
-    <div class="container">
+    <div class="container-xxxl">
         <section class="vp-section">
           <div class="row g-4 align-items-stretch">
             <!-- Left: Portrait -->

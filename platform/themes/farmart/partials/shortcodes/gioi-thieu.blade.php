@@ -1,11 +1,12 @@
 <div class="section-vp1">
-    <div class="container">
+    <div class="container-xxxl">
+        <div class="intro-title">
+            <h3 class="intro-badge">GIỚI THIỆU</h3>
+
+        </div>
+
         <section class="intro-section">
-            <div class="intro-title">
-                <span class="intro-badge">GIỚI THIỆU</span>
-
-            </div>
-
+         
             <div class="intro-body">
                 <h4 class="fw-bold mb-3">LỜI NÓI ĐẦU</h4>
                 <p>Trại hòm <strong>VẠN PHƯỚC</strong> – một trong 10 đơn vị mai táng uy tín nhất TP.HCM – được thành
