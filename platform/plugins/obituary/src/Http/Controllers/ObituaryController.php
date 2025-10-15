@@ -30,8 +30,8 @@ class ObituaryController extends BaseController
 
     public function store(ObituaryRequest $request, BaseHttpResponse $response)
     {
-        $data = $request->validated();
-        $item = Obituary::create($data);
+            $data = $request->validated();
+           $item = Obituary::create($data);
 
         event(new CreatedContentEvent('obituary', $request, $item));
 

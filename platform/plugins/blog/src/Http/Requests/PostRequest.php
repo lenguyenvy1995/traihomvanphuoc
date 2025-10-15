@@ -24,6 +24,7 @@ class PostRequest extends Request
             'status' => Rule::in(BaseStatusEnum::values()),
             'is_featured' => [new OnOffRule()],
             'image' => ['nullable', 'string', new MediaImageRule()],
+          
         ];
 
         $postFormats = PostFormat::getPostFormats(true);
@@ -34,7 +35,6 @@ class PostRequest extends Request
 
         return $rules;
     }
-
     public function attributes(): array
     {
         return [

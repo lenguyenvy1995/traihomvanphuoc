@@ -8,8 +8,8 @@ class PublicController extends Controller
 {
     public function show($slug)
     {
-        $item = Obituary::where('slug', $slug)->firstOrFail();
-        return view('plugins/obituary::obituary.show', compact('item'));
+        $obituary = Obituary::where('slug', $slug)->firstOrFail();
+        return view('plugins/obituary::obituary.show', compact('obituary'));
     }
 
     public function index()

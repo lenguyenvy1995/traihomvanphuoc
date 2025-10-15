@@ -16,12 +16,18 @@ class Obituary extends BaseModel
         'name',
         'slug',
         'avatar',
+        'Obituary',
         'funeral_host',
         'content',
         'funeral_program',
+        'condolence_message',
         'date_of_birth',
         'date_of_death',
         'place',
+        'account_holder',   // ✅ Thêm dòng này
+        'bank_name',        // ✅
+        'account_number', 
+        'wreath', 
         'status',
     ];
     protected static function booted(): void
@@ -29,5 +35,9 @@ class Obituary extends BaseModel
         self::saving(function (self $model): void {
             $model->slug = self::createSlug($model->slug ?: $model->name, $model->getKey());
         });
+    }
+    public function condolences()
+    {
+        return $this->hasMany(ObituaryCondolence::class);
     }
 }
