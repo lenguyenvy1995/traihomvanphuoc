@@ -216,6 +216,25 @@
             line-height: 1.3;
         }
 
+        @media screen and (min-width: 769px) {
+            .intro-badge {
+                font-size: 16px;
+            }
+
+            .intro-badge::before {
+                left: -80px;
+                transform: translateY(-46%);
+                width: 8px;
+                height: 80px;
+            }
+            .intro-badge::after {
+                right: -80px;
+                transform: translateY(-46%);
+                width: 8px;
+                height: 80px;
+            }
+        }
+
         /* Hoa bên trái */
         .intro-badge::before {
             content: "";
@@ -348,7 +367,7 @@
         }
 
         /* blog */
-  
+
 
         .news-featured img {
             transition: all 0.3s ease;
