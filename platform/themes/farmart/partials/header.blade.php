@@ -224,14 +224,14 @@
             .intro-badge::before {
                 left: -80px !important;
                 transform: translateY(-46%) !important;
-                width: 8px !important;
+                width: 80px !important;
                 height: 80px !important;
             }
 
             .intro-badge::after {
                 right: -80px !important;
                 transform: translateY(-46%) !important;
-                width: 8px !important;
+                width: 80px !important;
                 height: 80px !important;
             }
         }
