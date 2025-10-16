@@ -216,7 +216,7 @@
             line-height: 1.3;
         }
 
-        @media screen and (min-width: 769px) {
+        @media (max-width: 767.98px) {
             .intro-badge {
                 font-size: 16px;
             }
@@ -227,6 +227,7 @@
                 width: 8px;
                 height: 80px;
             }
+
             .intro-badge::after {
                 right: -80px;
                 transform: translateY(-46%);
