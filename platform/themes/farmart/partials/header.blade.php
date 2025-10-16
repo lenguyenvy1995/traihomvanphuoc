@@ -222,17 +222,17 @@
             }
 
             .intro-badge::before {
-                left: -80px;
-                transform: translateY(-46%);
-                width: 8px;
-                height: 80px;
+                left: -80px !important;
+                transform: translateY(-46%) !important;
+                width: 8px !important;
+                height: 80px !important;
             }
 
             .intro-badge::after {
-                right: -80px;
-                transform: translateY(-46%);
-                width: 8px;
-                height: 80px;
+                right: -80px !important;
+                transform: translateY(-46%) !important;
+                width: 8px !important;
+                height: 80px !important;
             }
         }
 
