@@ -235,8 +235,10 @@
                 height: 80px !important;
             }
         }
-
-        /* Hoa bên trái */
+        .svg-icon svg{
+            fill:#fff;
+        }
+        /* Hoa bên trái */2
         .intro-badge::before {
             content: "";
             position: absolute;
