@@ -63,7 +63,16 @@
         .header .header-bottom .menu>li>a {
             color: #fff;
         }
+        #footer{
+         background: linear-gradient(135deg, #ebd695, #caae5a);
 
+        }
+        #footer p{
+            color: #000;
+        }  
+        #footer a{
+            color: #000;
+        }
         /* van phuoc 1 */
 
         .vp-section {

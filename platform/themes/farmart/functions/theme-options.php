@@ -118,6 +118,21 @@ app('events')->listen(RenderingThemeOptionSettings::class, function (): void {
             ],
         ])
         ->setField([
+            'id' => 'title',
+            'section_id' => 'opt-text-subsection-general',
+            'type' => 'text',
+            'label' => __('title2'),
+            'attributes' => [
+                'name' => 'title2',
+                'value' => null,
+                'options' => [
+                    'class' => 'form-control',
+                    'placeholder' => __('title2'),
+                    'data-counter' => 50,
+                ],
+            ],
+        ])
+        ->setField([
             'id' => 'hotline',
             'section_id' => 'opt-text-subsection-general',
             'type' => 'text',
