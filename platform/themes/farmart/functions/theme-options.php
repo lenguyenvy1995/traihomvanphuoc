@@ -133,6 +133,21 @@ app('events')->listen(RenderingThemeOptionSettings::class, function (): void {
             ],
         ])
         ->setField([
+            'id' => 'hotline2',
+            'section_id' => 'opt-text-subsection-general',
+            'type' => 'text',
+            'label' => __('Hotline2'),
+            'attributes' => [
+                'name' => 'hotline2',
+                'value' => null,
+                'options' => [
+                    'class' => 'form-control',
+                    'placeholder' => __('Hotline2'),
+                    'data-counter' => 30,
+                ],
+            ],
+        ])
+        ->setField([
             'id' => 'address',
             'section_id' => 'opt-text-subsection-general',
             'type' => 'text',
@@ -143,6 +158,21 @@ app('events')->listen(RenderingThemeOptionSettings::class, function (): void {
                 'options' => [
                     'class' => 'form-control',
                     'placeholder' => __('Address'),
+                    'data-counter' => 120,
+                ],
+            ],
+        ])
+        ->setField([
+            'id' => 'address2',
+            'section_id' => 'opt-text-subsection-general',
+            'type' => 'text',
+            'label' => __('Address2'),
+            'attributes' => [
+                'name' => 'address2',
+                'value' => null,
+                'options' => [
+                    'class' => 'form-control',
+                    'placeholder' => __('Address2'),
                     'data-counter' => 120,
                 ],
             ],
