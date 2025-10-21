@@ -30,6 +30,7 @@ class Page extends BaseModel
         'template',
         'description',
         'status',
+        'outstanding',
         'user_id',
     ];
 
@@ -38,6 +39,8 @@ class Page extends BaseModel
         'name' => SafeContent::class,
         'description' => SafeContent::class,
         'template' => SafeContent::class,
+        'outstanding' => 'boolean',
+
     ];
 
     public function user(): BelongsTo

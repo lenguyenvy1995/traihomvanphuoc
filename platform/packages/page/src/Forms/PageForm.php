@@ -8,11 +8,13 @@ use Botble\Base\Forms\FieldOptions\MediaImageFieldOption;
 use Botble\Base\Forms\FieldOptions\NameFieldOption;
 use Botble\Base\Forms\FieldOptions\SelectFieldOption;
 use Botble\Base\Forms\FieldOptions\StatusFieldOption;
+use Botble\Base\Forms\FieldOptions\CheckboxFieldOption;
 use Botble\Base\Forms\Fields\EditorField;
 use Botble\Base\Forms\Fields\MediaImageField;
 use Botble\Base\Forms\Fields\SelectField;
 use Botble\Base\Forms\Fields\TextareaField;
 use Botble\Base\Forms\Fields\TextField;
+use Botble\Base\Forms\Fields\CheckboxField;
 use Botble\Base\Forms\FormAbstract;
 use Botble\Page\Http\Requests\PageRequest;
 use Botble\Page\Models\Page;
@@ -29,7 +31,15 @@ class PageForm extends FormAbstract
             ->add('description', TextareaField::class, DescriptionFieldOption::make())
             ->add('content', EditorField::class, ContentFieldOption::make()->allowedShortcodes())
             ->add('status', SelectField::class, StatusFieldOption::make())
-            ->when(Template::getPageTemplates(), function (PageForm $form, array $templates) {
+            ->add(
+                'outstanding',
+                CheckboxField::class,
+                CheckboxFieldOption::make()
+                    ->label('Nổi bật')
+                    ->checked($this->model && $this->model->outstanding == 1)
+                    ->value('1')
+
+            )->when(Template::getPageTemplates(), function (PageForm $form, array $templates) {
                 return $form
                     ->add(
                         'template',

@@ -6,23 +6,23 @@
                 @if (theme_option('title2'))
                     <h5 class="text-uppercase fw-bold mb-3">{{ theme_option('title2') }}</h5>
                 @endif
-            
+
                 @if (theme_option('address'))
                     <p class="mb-1"><strong>Địa chỉ:</strong> {{ theme_option('address') }}</p>
                 @endif
-            
+
                 @if (theme_option('address2'))
                     <p class="mb-1"><strong>Chi nhánh:</strong> {{ theme_option('address2') }}</p>
                 @endif
-            
+
                 @if (theme_option('hotline'))
                     <p class="mb-1"><strong>Điện thoại 1:</strong> {{ theme_option('hotline') }}</p>
                 @endif
-            
+
                 @if (theme_option('hotline2'))
                     <p class="mb-1"><strong>Điện thoại 2:</strong> {{ theme_option('hotline2') }}</p>
                 @endif
-            
+
                 @if (theme_option('email'))
                     <p class="mb-1"><strong>Email:</strong> {{ theme_option('email') }}</p>
                 @endif
@@ -31,15 +31,21 @@
             <!-- Cột 3: Dịch vụ -->
             <div class="col-lg-4 col-md-6">
                 <h5 class="text-uppercase fw-bold mb-3">Dịch vụ nổi bật</h5>
+                @php
+                    $pages = Botble\Page\Models\Page::query()
+                        ->where('outstanding', 1)
+                        ->where('status', 'published') // Nếu bạn chỉ muốn trang đã public
+                        ->orderByDesc('created_at')
+                        ->get();
+                @endphp
                 <ul class="list-unstyled">
-                    <li><a href="/thiet-ke-website" class="text-light text-decoration-none d-block mb-2">Thiết kế
-                            Website</a></li>
-                    <li><a href="/google-ads" class="text-light text-decoration-none d-block mb-2">Quảng cáo Google
-                            Ads</a></li>
-                    <li><a href="/seo-tong-the" class="text-light text-decoration-none d-block mb-2">SEO Tổng
-                            thể</a></li>
-                    <li><a href="/cham-soc-website" class="text-light text-decoration-none d-block">Chăm sóc
-                            Website</a></li>
+                    @foreach ($pages as $page)
+                        <li>
+                            <a href="{{ $page->url }}" class="text-decoration-none d-block mb-2">
+                                {{ $page->name }}
+                            </a>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
 
@@ -47,10 +53,9 @@
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-uppercase fw-bold mb-3">GOOGLE MAPS</h5>
                 <div class="ratio ratio-16x9 rounded overflow-hidden shadow-sm">
-                    <iframe 
-                        src="https://www.google.com/maps?q={{ urlencode(theme_option('address')) }}&output=embed"
-                        width="100%" height="250" style="border:0;" allowfullscreen=""
-                        loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    <iframe src="https://www.google.com/maps?q={{ urlencode(theme_option('address')) }}&output=embed"
+                        width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                 </div>
             </div>
