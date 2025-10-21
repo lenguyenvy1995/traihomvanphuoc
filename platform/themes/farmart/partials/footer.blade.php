@@ -2,7 +2,7 @@
     <div class="container-xxxl">
         <div class="row gy-4">
             <!-- Cột 1: Logo + mô tả -->
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-5 col-md-6">
                 @if (theme_option('title2'))
                     <h5 class="text-uppercase fw-bold mb-3">{{ theme_option('title2') }}</h5>
                 @endif
@@ -28,22 +28,9 @@
                 @endif
             </div>
 
-            <!-- Cột 2: Liên kết nhanh -->
-            <div class="col-lg-2 col-md-6">
-                <h6 class="text-uppercase fw-bold mb-3">Liên kết</h6>
-                <ul class="list-unstyled">
-                    <li><a href="/" class="text-light text-decoration-none d-block mb-2">Trang chủ</a></li>
-                    <li><a href="/gioi-thieu" class="text-light text-decoration-none d-block mb-2">Giới thiệu</a>
-                    </li>
-                    <li><a href="/dich-vu" class="text-light text-decoration-none d-block mb-2">Dịch vụ</a></li>
-                    <li><a href="/du-an" class="text-light text-decoration-none d-block mb-2">Dự án</a></li>
-                    <li><a href="/lien-he" class="text-light text-decoration-none d-block">Liên hệ</a></li>
-                </ul>
-            </div>
-
             <!-- Cột 3: Dịch vụ -->
-            <div class="col-lg-3 col-md-6">
-                <h6 class="text-uppercase fw-bold mb-3">Dịch vụ nổi bật</h6>
+            <div class="col-lg-4 col-md-6">
+                <h5 class="text-uppercase fw-bold mb-3">Dịch vụ nổi bật</h5>
                 <ul class="list-unstyled">
                     <li><a href="/thiet-ke-website" class="text-light text-decoration-none d-block mb-2">Thiết kế
                             Website</a></li>
@@ -58,16 +45,13 @@
 
             <!-- Cột 4: Mạng xã hội -->
             <div class="col-lg-3 col-md-6">
-                <h6 class="text-uppercase fw-bold mb-3">Kết nối với chúng tôi</h6>
-                <div class="d-flex gap-3">
-                    <a href="https://facebook.com/tivatech.vn" class="text-light fs-5"><i
-                            class="bi bi-facebook"></i></a>
-                    <a href="https://instagram.com/tivatech.vn" class="text-light fs-5"><i
-                            class="bi bi-instagram"></i></a>
-                    <a href="https://www.linkedin.com/company/tivatech" class="text-light fs-5"><i
-                            class="bi bi-linkedin"></i></a>
-                    <a href="https://tiktok.com/@tivatech.vn" class="text-light fs-5"><i
-                            class="bi bi-tiktok"></i></a>
+                <h5 class="text-uppercase fw-bold mb-3">GOOGLE MAPS</h5>
+                <div class="ratio ratio-16x9 rounded overflow-hidden shadow-sm">
+                    <iframe 
+                        src="https://www.google.com/maps?q={{ urlencode(theme_option('address')) }}&output=embed"
+                        width="100%" height="250" style="border:0;" allowfullscreen=""
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </div>
         </div>
