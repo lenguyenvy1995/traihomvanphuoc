@@ -3,14 +3,29 @@
         <div class="row gy-4">
             <!-- Cột 1: Logo + mô tả -->
             <div class="col-lg-4 col-md-6">
-                <h5 class="text-uppercase fw-bold mb-3">{{ theme_option('title2') }}</h5>
-        
-                <p class="mb-1"><i class="bi bi-geo-alt me-2"></i>{{ theme_option('address') }}</p>
-                <p class="mb-1"><i class="bi bi-geo-alt me-2"></i>{{ theme_option('address2') }}</p>
-                <p class="mb-1"><i class="bi bi-telephone me-2"></i>{{ theme_option('hotline') }}</p>
-                <p class="mb-1"><i class="bi bi-telephone me-2"></i>{{ theme_option('hotline2') }}</p>
-                <p class="mb-1"><i class="bi bi-telephone me-2"></i>{{ theme_option('email') }}</p>
-
+                @if (theme_option('title2'))
+                    <h5 class="text-uppercase fw-bold mb-3">{{ theme_option('title2') }}</h5>
+                @endif
+            
+                @if (theme_option('address'))
+                    <p class="mb-1"><strong>Địa chỉ:</strong> {{ theme_option('address') }}</p>
+                @endif
+            
+                @if (theme_option('address2'))
+                    <p class="mb-1"><strong>Chi nhánh:</strong> {{ theme_option('address2') }}</p>
+                @endif
+            
+                @if (theme_option('hotline'))
+                    <p class="mb-1"><strong>Điện thoại 1:</strong> {{ theme_option('hotline') }}</p>
+                @endif
+            
+                @if (theme_option('hotline2'))
+                    <p class="mb-1"><strong>Điện thoại 2:</strong> {{ theme_option('hotline2') }}</p>
+                @endif
+            
+                @if (theme_option('email'))
+                    <p class="mb-1"><strong>Email:</strong> {{ theme_option('email') }}</p>
+                @endif
             </div>
 
             <!-- Cột 2: Liên kết nhanh -->
