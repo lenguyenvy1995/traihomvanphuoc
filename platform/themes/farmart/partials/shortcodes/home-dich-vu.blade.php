@@ -4,7 +4,7 @@
 
     </div>
     <div class="row align-items-center {{$shortcode->position=='left'?'flex-row-reverse':''}} ">
-      
+        {{-- @dd($shortcode) --}}
         <div class="col-lg-8">
             <div class="service-bg p-4 rounded-4 shadow-sm">
                 @if(!empty($services))
@@ -14,8 +14,9 @@
                         <div class="col-md-6">
                             <ol class="list-unstyled fw-semibold">
                                 @foreach($services as $index => $item)
+                                    {{-- @dd($item) --}}
                                     @if($index < $half)
-                                        <li> <a href=" {{ $item['url'] ?? '' }}"> {{ $item['title'] ?? '' }}</a> </li>
+                                        <li> <a href="{{ $item['url'] ?? '' }}"> {{ $item['title'] ?? '' }}</a> </li>
                                     @endif
                                 @endforeach
                             </ol>

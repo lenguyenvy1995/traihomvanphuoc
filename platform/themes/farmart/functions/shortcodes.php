@@ -904,7 +904,7 @@ app()->booted(function (): void {
         'Danh sách dịch vụ',
         'Hiển thị danh sách dịch vụ dạng 2 cột',
         function ($shortcode) {
-            $services = shortcode()->fields()->getTabsData(['title', 'URL'], $shortcode);
+            $services = shortcode()->fields()->getTabsData(['title', 'url'], $shortcode);
 
             return Theme::partial('shortcodes.home-dich-vu', compact('services', 'shortcode'));
         }
