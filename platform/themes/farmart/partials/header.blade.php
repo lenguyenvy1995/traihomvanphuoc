@@ -193,7 +193,13 @@
                 margin-bottom: 16px;
             }
         }
+        .blog-page-content .post-item-wrapper .card{
+            background-color: unset;
+        }
+        .post-item-smal{
+            background-color: unset;
 
+        }
         /* giới thiệu */
         .intro-section {
             border-radius: 16px;

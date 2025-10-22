@@ -2,8 +2,8 @@
 
 <div class="row mt-5">
     <div class="col-md-9">
-        <h1 class="h2">{{ $post->name }}</h1>
-        <div class="post-item__inner pb-4 my-3 border-bottom">
+        <h1 class="h2">{{ $post->name }} fafaf</h1>
+        {{-- <div class="post-item__inner pb-4 my-3 border-bottom">
             <div class="entry-meta">
                 @if ($post->author && theme_option('blog_show_author_name', 'yes') == 'yes')
                     <div class="entry-meta-author">
@@ -23,7 +23,7 @@
                     <time>{{ Theme::formatDate($post->created_at) }}</time>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="mt-5 pt-3 post-detail__content">
             <div class="ck-content">{!! BaseHelper::clean($post->content) !!}</div>
 
