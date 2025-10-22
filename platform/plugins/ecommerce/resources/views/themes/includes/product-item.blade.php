@@ -13,7 +13,6 @@
             <div class="card-title product-name fw-bold mb-3" >
                 <a class="text-black" title="{{ $product->name }}" href="{{ $product->url }}">{{ $product->name }}</a>
             </div>
-
             @include(EcommerceHelper::viewPath('includes.product-price'))
 
             @if(EcommerceHelper::isReviewEnabled() && (!EcommerceHelper::hideRatingWhenNoReviews() || $product->reviews_count > 0))

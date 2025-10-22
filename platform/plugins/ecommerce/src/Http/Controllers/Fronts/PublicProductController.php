@@ -77,7 +77,6 @@ class PublicProductController extends BaseController
         do_action(PRODUCT_MODULE_SCREEN_NAME);
 
         app(GoogleTagManager::class)->viewItemList($products->all(), 'Product List');
-
         return Theme::scope(
             'ecommerce.products',
             compact('products'),

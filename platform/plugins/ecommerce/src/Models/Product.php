@@ -64,6 +64,7 @@ class Product extends BaseModel
         'is_variation',
         'sale_type',
         'price',
+        'price_none',
         'sale_price',
         'start_date',
         'end_date',

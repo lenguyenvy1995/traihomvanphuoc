@@ -79,6 +79,12 @@ class ProductForm extends FormAbstract
             ->setValidatorClass(ProductRequest::class)
             ->setFormOption('files', true)
             ->add('name', TextField::class, NameFieldOption::make()->required())
+            ->add('price_none', 'text', [
+                'label' => 'Giá thay thế (price_none)',
+                'attr' => [
+                    'placeholder' => 'Nhập giá hiển thị thay thế nếu có',
+                ],
+            ])
             ->add(
                 'description',
                 EditorField::class,
@@ -184,6 +190,7 @@ class ProductForm extends FormAbstract
                         'value' => old('product_labels', $selectedProductLabels),
                     ]);
             })
+        
             ->when(EcommerceHelper::isTaxEnabled(), function (): void {
                 $taxes = Tax::query()->oldest('percentage')->get()->pluck('title_with_percentage', 'id')->all();
 
