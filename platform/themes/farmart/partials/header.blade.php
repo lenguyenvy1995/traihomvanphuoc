@@ -200,6 +200,9 @@
             background-color: unset;
 
         }
+        .entry-description p{
+            color:#000;
+        }
         /* giới thiệu */
         .intro-section {
             border-radius: 16px;
