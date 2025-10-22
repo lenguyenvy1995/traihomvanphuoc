@@ -411,7 +411,7 @@
     </style>
 </head>
 
-<body {!! Theme::bodyAttributes() !!}>
+<body {!! Theme::bodyAttributes() !!} style="background-image: url('https://traihomvanphuoc.b-cdn.net/./152e580b-576c-4aed-9e45-b2be9d3ddd49.webp')">
     @if (theme_option('preloader_enabled', 'yes') == 'yes')
         {!! Theme::partial('preloader') !!}
     @endif
