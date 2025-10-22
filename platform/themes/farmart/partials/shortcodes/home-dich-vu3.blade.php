@@ -13,7 +13,7 @@
                              alt="{{ $item['title'] }}" 
                              class="img-fluid w-100 rounded">
                         <div class="service-title position-absolute bottom-0 w-100  py-3">
-                            <a class="mb-0 fw-bold text-warning text-uppercase small" href="{{ $item['url'] }}"> {{ $item['title'] }}</a>
+                            <a class="mb-0 fw-bold text-warning text-uppercase small" href="{{ $item['url']??'' }}"> {{ $item['title'] }}</a>
                         </div>
                     </div>
                 </div>

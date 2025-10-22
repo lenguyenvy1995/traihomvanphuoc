@@ -995,7 +995,7 @@ app()->booted(function (): void {
         'Dịch vụ mẫu 3',
         'Hiển thị danh sách dịch vụ dạng 2 cột',
         function ($shortcode) {
-            $services = shortcode()->fields()->getTabsData(['title','image', 'URL'], $shortcode);
+            $services = shortcode()->fields()->getTabsData(['title','image', 'url'], $shortcode);
 
             return Theme::partial('shortcodes.home-dich-vu3', compact('services', 'shortcode'));
         }
@@ -1037,7 +1037,7 @@ app()->booted(function (): void {
         'Slider hình ảnh thực tế',
         'Hiển thị slider hình ảnh thực tế bằng Bootstrap 5',
         function ($shortcode) {
-            $images = shortcode()->fields()->getTabsData(['title','image', 'URL'], $shortcode);
+            $images = shortcode()->fields()->getTabsData(['title','image', 'url'], $shortcode);
 
             return Theme::partial('shortcodes.home-hinh-anh-thuc-te', compact('images','shortcode'));
         }
