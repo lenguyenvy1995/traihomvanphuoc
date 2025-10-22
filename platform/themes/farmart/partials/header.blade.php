@@ -247,7 +247,7 @@
         .svg-icon svg{
             fill:#fff;
         }
-        /* Hoa bên trái */2
+        /* Hoa bên trái */
         .intro-badge::before {
             content: "";
             position: absolute;
