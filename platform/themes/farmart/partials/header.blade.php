@@ -196,7 +196,7 @@
         .blog-page-content .post-item-wrapper .card{
             background-color: unset;
         }
-        .post-item-smal{
+        .post-item-small{
             background-color: unset;
 
         }
