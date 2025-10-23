@@ -12,7 +12,7 @@
                 <!-- Bài viết nổi bật (bài đầu tiên) -->
                 @php
                     $featured = $posts->first();
-                    $others = $posts->skip(1)->take(4);
+                    $others = $posts->skip(1)->take(8);
                 @endphp
 
                 <div class="col-lg-6">
