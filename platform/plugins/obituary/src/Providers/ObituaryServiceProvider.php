@@ -19,7 +19,7 @@ class ObituaryServiceProvider extends ServiceProvider
             ->loadMigrations()
             ->loadAndPublishTranslations()
             ->loadAndPublishViews()
-            ->loadRoutes(['web']);
+            ->loadRoutes(fileNames: ['web']);
 
         // Menu Admin
         DashboardMenu::default()->beforeRetrieving(function () {
