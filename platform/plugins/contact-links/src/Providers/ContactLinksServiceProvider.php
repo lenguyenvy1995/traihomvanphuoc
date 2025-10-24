@@ -33,10 +33,10 @@ class ContactLinksServiceProvider extends ServiceProvider
                     'id' => 'cms-plugins-contact links',
                     'priority' => 5,
                     'parent_id' => null,
-                    'name' => 'plugins/contact links::contact links.name',
-                    'icon' => 'ti ti-box',
-                    'url' => route('contact links.index'),
-                    'permissions' => ['contact links.index'],
+                    'name' => 'plugins/contact links::contact-links.name',
+                    'icon' => 'class="ti ti-brand-line',
+                    'url' => route('contact-links.index'),
+                    'permissions' => ['contact-links.index'],
                 ]);
             });
             
