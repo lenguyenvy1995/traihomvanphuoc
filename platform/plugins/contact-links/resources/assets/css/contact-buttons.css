@@ -1,0 +1,28 @@
+#cb-wrapper { position: fixed; z-index: 9999; display: flex; gap: 10px; }
+.cb-item {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 12px; border-radius: 999px;
+  background: var(--cb-bg, #0ea5e9); color: var(--cb-color, #fff);
+  box-shadow: 0 8px 20px rgba(0,0,0,.15); text-decoration: none; font-weight: 600;
+}
+.cb-item i { font-size: 16px; line-height: 1; }
+
+.cb-pos-right { right: 16px; bottom: 16px; flex-direction: column; }
+.cb-pos-left  { left: 16px; bottom: 16px; flex-direction: column; }
+.cb-pos-bottom { left: 50%; transform: translateX(-50%); bottom: 12px; }
+
+.cb-style-1 .cb-item { border-radius: 14px; }  /* pill label */
+.cb-style-2 .cb-item { border-radius: 10px; }  /* bar style */
+.cb-style-3 .cb-item { border-radius: 50%; width: 48px; height: 48px; justify-content: center; }
+.cb-style-3 .cb-item .cb-label { display: none; }
+
+@media (max-width: 767px) {
+  .cb-pos-right, .cb-pos-left { bottom: 12px; }
+  .cb-item { padding: 10px; }
+}
+.cb-item img.cb-icon-img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    display: block;
+  }

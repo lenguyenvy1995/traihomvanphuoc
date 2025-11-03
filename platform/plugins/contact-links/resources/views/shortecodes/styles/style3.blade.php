@@ -1,0 +1,1 @@
+{{-- Minimal round buttons column with hover labels --}}

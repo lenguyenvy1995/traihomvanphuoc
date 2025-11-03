@@ -1,0 +1,105 @@
+@extends(BaseHelper::getAdminMasterLayoutTemplate())
+
+@section('content')
+    <div class="max-width-1200">
+        {!! Form::open(['url' => $item->id ? route('contact-buttons.update', $item->id) : route('contact-buttons.store'),
+                        'method' => $item->id ? 'PUT' : 'POST',
+                        'enctype' => 'multipart/form-data']) !!}
+
+        <div class="main-form">
+            <div class="form-body">
+                {{-- Label --}}
+                <div class="form-group mb-3">
+                    <label class="text-title-field">Tên hiển thị</label>
+                    {!! Form::text('label', old('label', $item->label), ['class' => 'form-control', 'placeholder' => 'VD: Liên hệ Zalo']) !!}
+                </div>
+
+                {{-- Icon class --}}
+                <div class="form-group mb-3">
+                    <label>Icon class (Font Awesome)</label>
+                    {!! Form::text('icon_class', old('icon_class', $item->icon_class), ['class' => 'form-control', 'placeholder' => 'VD: fa-brands fa-facebook-messenger']) !!}
+                    <small class="text-muted">Hoặc để trống nếu dùng ảnh icon bên dưới.</small>
+                </div>
+
+                {{-- Image upload --}}
+                <div class="form-group mb-3">
+                    <label>Ảnh icon tùy chọn</label>
+                    {!! Form::mediaImage('image', old('image', $item->image)) !!}
+                    <small class="text-muted">Upload ảnh nhỏ (tầm 64x64px) nếu không dùng icon class.</small>
+                </div>
+
+                {{-- URL --}}
+                <div class="form-group mb-3">
+                    <label>Liên kết (URL)</label>
+                    {!! Form::text('url', old('url', $item->url), ['class' => 'form-control', 'placeholder' => 'VD: https://zalo.me/0901234567 hoặc tel:0901234567']) !!}
+                </div>
+
+                {{-- Colors --}}
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group mb-3">
+                            <label>Màu nền</label>
+                            {!! Form::customColor('bg_color', old('bg_color', $item->bg_color ?? '#0ea5e9')) !!}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group mb-3">
+                            <label>Màu chữ/icon</label>
+                            {!! Form::customColor('text_color', old('text_color', $item->text_color ?? '#ffffff')) !!}
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Style --}}
+                <div class="form-group mb-3">
+                    <label>Kiểu hiển thị</label>
+                    {!! Form::select('style', [
+                        '1' => 'Style 1 - Floating button',
+                        '2' => 'Style 2 - Dock bar dưới',
+                        '3' => 'Style 3 - Biểu tượng tròn',
+                    ], old('style', $item->style), ['class' => 'form-control select-search-full']) !!}
+                </div>
+
+                {{-- Position --}}
+                <div class="form-group mb-3">
+                    <label>Vị trí</label>
+                    {!! Form::select('position', [
+                        'right' => 'Phải',
+                        'left' => 'Trái',
+                        'bottom' => 'Dưới',
+                    ], old('position', $item->position), ['class' => 'form-control select-search-full']) !!}
+                </div>
+
+                {{-- Target --}}
+                <div class="form-group mb-3">
+                    <label>Mở liên kết</label>
+                    {!! Form::select('target', ['_self' => 'Trong tab hiện tại', '_blank' => 'Tab mới'], old('target', $item->target), ['class' => 'form-control select-search-full']) !!}
+                </div>
+
+                {{-- Sort order --}}
+                <div class="form-group mb-3">
+                    <label>Thứ tự hiển thị</label>
+                    {!! Form::number('sort_order', old('sort_order', $item->sort_order), ['class' => 'form-control', 'min' => 0]) !!}
+                </div>
+
+                {{-- Active --}}
+                <div class="form-group mb-3">
+                    <label class="me-3">Kích hoạt</label>
+                    <label class="form-check form-switch">
+                        {!! Form::checkbox('is_active', 1, old('is_active', $item->is_active), ['class' => 'form-check-input']) !!}
+                        <span class="form-check-label">Hiển thị trên website</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-footer mt-3">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa fa-save"></i> {{ $item->id ? 'Cập nhật' : 'Tạo mới' }}
+                </button>
+                <a href="{{ route('contact-buttons.index') }}" class="btn btn-secondary">Quay lại</a>
+            </div>
+        </div>
+
+        {!! Form::close() !!}
+    </div>
+@stop
