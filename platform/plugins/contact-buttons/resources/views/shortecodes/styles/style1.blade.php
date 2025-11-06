@@ -1,1 +1,0 @@
-{{-- Floating stack (mobile bottom-right, desktop right-center) --}}

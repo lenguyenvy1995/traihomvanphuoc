@@ -1,9 +1,0 @@
-{
-    "name": "botble/contact-buttons",
-    "type": "library",
-    "autoload": {
-      "psr-4": {
-        "Botble\\ContactButtons\\": "src/"
-      }
-    }
-  }
