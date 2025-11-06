@@ -305,13 +305,13 @@
 {!! Theme::partial('toast') !!}
 
 <div class="panel-overlay-layer"></div>
-<div id="back2top">
+{{-- <div id="back2top">
     <span class="svg-icon">
         <svg>
             <use href="#svg-icon-arrow-up" xlink:href="#svg-icon-arrow-up"></use>
         </svg>
     </span>
-</div>
+</div> --}}
 
 <script data-pagespeed-no-defer data-pagespeed-no-transform>
     'use strict';
