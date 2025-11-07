@@ -311,7 +311,7 @@
             <use href="#svg-icon-arrow-up" xlink:href="#svg-icon-arrow-up"></use>
         </svg>
     </span>
-</div> --}}
+</div> --đ}}
 
 <script data-pagespeed-no-defer data-pagespeed-no-transform>
     'use strict';
