@@ -995,7 +995,7 @@ app()->booted(function (): void {
         'Dịch vụ mẫu 3',
         'Hiển thị danh sách dịch vụ dạng 2 cột',
         function ($shortcode) {
-            $services = shortcode()->fields()->getTabsData(['title','image', 'url'], $shortcode);
+            $services = shortcode()->fields()->getTabsData(['title', 'image', 'url'], $shortcode);
 
             return Theme::partial('shortcodes.home-dich-vu3', compact('services', 'shortcode'));
         }
@@ -1031,18 +1031,65 @@ app()->booted(function (): void {
         ;
     });
     ShortcodeFacade::setPreviewImage('home-dich-vu3', Theme::asset()->url('https://traihomvanphuoc.b-cdn.net/shortcode/home-dich-vu/9a25d068-3968-426d-8f48-f4066412fb78.webp'));
+    //dịch vụ mẫu 4
+    ShortcodeFacade::register(
+        'home-dich-vu4',
+        'Dịch vụ mẫu 4',
+        'Hiển thị danh sách dịch vụ dạng 2 cột',
+        function ($shortcode) {
+            $services = shortcode()->fields()->getTabsData(['title', 'image','content', 'url'], $shortcode);
+
+            return Theme::partial('shortcodes.home-dich-vu4', compact('services', 'shortcode'));
+        }
+    );
+    ShortcodeFacade::setAdminConfig('home-dich-vu4', function (array $attributes) {
+        $fields = [
+            'title' => [
+                'title' => __('Title'),
+                'required' => true,
+            ],
+            'url' => [
+                'title' => __('URL'),
+            ],
+            'content' => [
+                'title' => __('content'),
+                'type' => 'textarea',
+            ],
+            'image' => [
+                'type' => 'mediaImage',
+                'label' => 'Image',
+                'attributes' => [
+                    'name' => 'image',
+                    'value' => null,
+                ],
+            ],
+        ];
+
+        return ShortcodeForm::createFromArray($attributes)
+            ->add('title', 'text', [
+                'label' => __('Title'),
+            ])
+            ->add('Dịch Vụ', 'tabs', [
+                'fields' => $fields,
+                'shortcode_attributes' => $attributes,
+            ])
+            ->withCaching(false)
+        ;
+    });
+    ShortcodeFacade::setPreviewImage('home-dich-vu4', Theme::asset()->url('https://traihomvanphuoc.b-cdn.net/shortcode/home-dich-vu/9a25d068-3968-426d-8f48-f4066412fb78.webp'));
+
     //hình ảnh thực tế
     ShortcodeFacade::register(
         'home-hinh-anh-thuc-te',
         'Slider hình ảnh thực tế',
         'Hiển thị slider hình ảnh thực tế bằng Bootstrap 5',
         function ($shortcode) {
-            $images = shortcode()->fields()->getTabsData(['title','image', 'url'], $shortcode);
+            $images = shortcode()->fields()->getTabsData(['title', 'image', 'url'], $shortcode);
 
-            return Theme::partial('shortcodes.home-hinh-anh-thuc-te', compact('images','shortcode'));
+            return Theme::partial('shortcodes.home-hinh-anh-thuc-te', compact('images', 'shortcode'));
         }
     );
-    
+
     ShortcodeFacade::setAdminConfig('home-hinh-anh-thuc-te', function (array $attributes) {
         $fields = [
             'title' => [
@@ -1081,7 +1128,7 @@ app()->booted(function (): void {
             ->orderByDesc('created_at')
             ->limit(5)
             ->get();
-    
+
         return Theme::partial('shortcodes.home-tin-tuc', compact('posts', 'shortcode'));
     });
 });
