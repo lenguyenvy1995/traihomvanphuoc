@@ -343,6 +343,30 @@
     Fancybox.bind("[data-fancybox]", {
         // Your custom options
     });
+    document.addEventListener('DOMContentLoaded', function() {
+        const content = document.getElementById('pageDescription');
+        const button = document.getElementById('toggleContentBtn');
+        const defaultMaxHeight = '500px';
+
+        if (!content || !button) return;
+
+        button.addEventListener('click', function() {
+            const isCollapsed = content.style.maxHeight === defaultMaxHeight || content.style.maxHeight === '';
+
+            if (isCollapsed) {
+                // Mở rộng nội dung
+                content.style.maxHeight = 'none';
+                content.style.overflow = 'visible';
+                button.textContent = 'Thu gọn';
+            } else {
+                // Thu gọn lại
+                content.style.maxHeight = defaultMaxHeight;
+                content.style.overflow = 'hidden';
+                button.textContent = 'Xem thêm';
+                window.scrollTo({ top: content.offsetTop - 100, behavior: 'smooth' });
+            }
+        });
+    });
 </script>
 {!! Theme::footer() !!}
 

@@ -44,11 +44,21 @@
     </div>
 
     @if (Theme::get('pageDescription'))
-        <div class="ps-block__content">
-            <div class="ps-section__content">
-                {!! BaseHelper::clean(Theme::get('pageDescription')) !!}
-            </div>
+    <div class="ps-block__content" style=" margin-bottom: 20px;">
+        <div id="pageDescription" 
+             class="ps-section__content" 
+             style="max-height: 500px; overflow: hidden;">
+            {!! BaseHelper::clean(Theme::get('pageDescription')) !!}
         </div>
+    
+        <div class="text-center p-3">
+            <button id="toggleContentBtn" 
+                    class="btn btn-primary" 
+                    style="padding: 8px 20px; border-radius: 8px;">
+                Xem thêm
+            </button>
+        </div>
+    </div>
     @endif
 
     <div class="row">
@@ -71,4 +81,3 @@
         </div>
     </div>
 </div>
-z
