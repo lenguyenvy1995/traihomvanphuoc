@@ -153,7 +153,7 @@
             <div class="button-wrap">
                 <div class="btn-group btn-group-obituary">
                     <button type="button" class="btn">Phúng Điếu</button>
-                    <a href="https://www.traihomvanphuoc.com/Zphukien1.html" class="btn ">Vòng Hoa</a>
+                    <a href=" {{ $obituary->wreath }}" class="btn ">Vòng Hoa</a>
                     <button type="button" class="btn" id="btnShare">Chia Sẻ</button>
                 </div>
                 <a href="" class="">MAI TÁNG ( TRẠI HÒM ) VẠN PHƯỚC</a>
