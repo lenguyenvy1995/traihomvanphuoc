@@ -3,6 +3,7 @@ namespace Botble\Obituary\Http\Controllers;
 
 use Illuminate\Routing\Controller;
 use Botble\Obituary\Models\Obituary;
+use Botble\Theme\Facades\Theme;
 
 class PublicController extends Controller
 {
@@ -14,7 +15,9 @@ class PublicController extends Controller
 
     public function index()
     {
-        $items = Obituary::latest()->paginate(9);
-        return view('plugins/obituary::obituary.index', compact('items'));
+        $items = Obituary::where('status', 'published')
+            ->latest()
+            ->get();
+            return Theme::scope('obituary.index', compact('items'))->render();
     }
 }

@@ -1,64 +1,41 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cáo Phó - {{ $item->name }}</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #111;
-            color: #fff;
-            font-family: "Helvetica Neue", Arial, sans-serif;
-        }
-        .obituary-card {
-            max-width: 700px;
-            margin: 60px auto;
-            background: #000;
-            border: 2px solid #444;
-            border-radius: 10px;
-            padding: 30px;
-            text-align: center;
-        }
-        .obituary-card img {
-            border-radius: 6px;
-            max-width: 220px;
-            margin-bottom: 20px;
-        }
-        .divider {
-            border-top: 1px solid #555;
-            margin: 20px 0;
-        }
-        .gold-text {
-            color: #e0b54b;
-            font-weight: 600;
-        }
-        .footer-note {
-            font-style: italic;
-            margin-top: 40px;
-            font-size: 14px;
-        }
-    </style>
-</head>
-<body>
-<div class="container">
-    <div class="obituary-card">
-        @if($item->photo)
-            <img src="{{ RvMedia::getImageUrl($item->photo) }}" alt="{{ $item->name }}">
-        @endif
-        <h2 class="fw-bold">CÁO PHÓ</h2>
-        <p class="text-muted small">Gia đình chúng tôi vô cùng đau buồn, kính báo tin cùng thân bằng quyến thuộc, bạn hữu và quý vị khán giả mộ điệu gần xa.</p>
+@extends(Theme::getThemeNamespace() . '::layouts.master')
 
-        <h3 class="gold-text text-uppercase mt-4">{{ $item->name }}</h3>
+@php
+    Theme::setTitle('Danh sách cáo phó');
+@endphp
 
-        <p><strong>Pháp danh:</strong> {{ $item->religious_name ?? '---' }}</p>
-        <p><strong>Sinh ngày:</strong> {{ $item->date_of_birth }} tại {{ $item->birth_place }}</p>
-        <p><strong>Vãng sanh lúc:</strong> {{ $item->date_of_death }} tại {{ $item->place }}</p>
-        <p><strong>Hưởng thọ:</strong> {{ $item->age }} tuổi</p>
+@section('content')
 
-        <div class="divider"></div>
-        <p class="footer-note">TANG GIA ĐỒNG KÍNH BÁO</p>
+<section class="py-5">
+    <div class="container">
+
+        <h2 class="mb-4 text-center">Danh sách cáo phó</h2>
+
+        <div class="row">
+            @foreach($items as $item)
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        
+                        @if($item->image)
+                            <img src="{{ RvMedia::getImageUrl($item->image, 'medium') }}"
+                                 class="card-img-top">
+                        @endif
+
+                        <div class="card-body">
+                            <h5>{{ $item->title }}</h5>
+                            <p>{{ Str::limit($item->description, 100) }}</p>
+                        </div>
+
+                    </div>
+                </div>
+            @endforeach
+        </div>
+
+        <div class="mt-4">
+            {{ $items->links() }}
+        </div>
+
     </div>
-</div>
-</body>
-</html>
+</section>
+
+@endsection
