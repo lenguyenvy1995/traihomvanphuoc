@@ -1,10 +1,9 @@
 @php
-    Theme::setTitle('Danh sách Cáo Phó');
+    Theme::set('pageTitle', 'DANH SÁCH CÁO PHÓ');
+
 @endphp
 
 <div class="container py-5">
-    <h2 class="mb-4">Danh sách cáo phó</h2>
-
     <div class="row">
         @foreach($items as $item)
             <div class="col-md-4 mb-4">
