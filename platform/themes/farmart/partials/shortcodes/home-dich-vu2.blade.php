@@ -10,8 +10,10 @@
     <div class="row align-items-center {{ $position === 'right' ? 'flex-row-reverse' : '' }}">
         <div class="col-md-6">
             @if ($shortcode->image)
-                <img src="{{ RvMedia::getImageUrl($shortcode->image) }}" alt="{{ $shortcode->title }}"
+                <div class="text-center">
+                    <img src="{{ RvMedia::getImageUrl($shortcode->image) }}" alt="{{ $shortcode->title }}"
                     class="img-fluid rounded-4 shadow-sm">
+                </div>
             @endif
         </div>
 
