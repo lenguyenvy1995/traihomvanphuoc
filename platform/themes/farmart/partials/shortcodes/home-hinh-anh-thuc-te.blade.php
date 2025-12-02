@@ -8,7 +8,8 @@
             <div id="lightgallery">
 
                 @foreach ($images as $index => $item)
-                    <a data-fancybox="gallery" href="{{ RvMedia::getImageUrl($item['image']) }}"><img src="{{ RvMedia::getImageUrl($item['image']) }}" alt="Hình ảnh thực tế {{ $index + 1 }}">
+                    <a data-fancybox="gallery" href="{{ RvMedia::getImageUrl($item['image']) }}">
+                        <img src="{{ RvMedia::getImageUrl($item['image']) }}" alt="Hình ảnh thực tế {{ $index + 1 }}" class="m-1">
                     </a>
 
                 @endforeach
