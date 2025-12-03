@@ -30,7 +30,7 @@
 
             <!-- Cột 3: Dịch vụ -->
             <div class="col-lg-4 col-md-6">
-                <h5 class="text-uppercase fw-bold mb-3">Dịch vụ nổi bật</h5>
+                <h5 class="text-uppercase fw-bold mb-3">{{ __('Featured Services') }}</h5>
                 @php
                     $pages = Botble\Page\Models\Page::query()
                         ->where('outstanding', 1)

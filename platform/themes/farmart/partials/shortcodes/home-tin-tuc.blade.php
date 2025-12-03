@@ -2,7 +2,7 @@
     <div class="container">
         <div class="text-center mb-4">
             <div class="intro-title">
-                <h3 class="intro-badge">TIN TỨC MỚI NHẤT</h3>
+                <h3 class="intro-badge">{{ __('Newest News') }}</h3>
     
             </div>
         </div>
