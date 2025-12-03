@@ -893,9 +893,42 @@ app()->booted(function (): void {
         'Giới thiệu a Vạn Phước nghen',
         function (ShortcodeCompiler $shortcode) {
             // Render the shortcode view
-            return Theme::partial('shortcodes.gioi-thieu', compact('shortcode'));
+            $box_abouts = shortcode()->fields()->getTabsData(['title', 'content'], $shortcode);
+
+            return Theme::partial('shortcodes.gioi-thieu', compact('shortcode','box_abouts'));
         }
     );
+    ShortcodeFacade::setAdminConfig('gioi-thieu-vp', function (array $attributes) {
+        $fields = [
+            'title' => [
+                'title' => __('Title'),
+                'required' => true,
+            ],
+            'content' => [
+                'title' => __('Content'),
+            ],
+        ];
+
+        return ShortcodeForm::createFromArray($attributes)
+            ->add('title', 'text', [
+                'label' => __('Title'),
+            ])
+            ->add(
+                'description', 
+                EditorField::class, 
+                EditorFieldOption::make()
+                    ->maxLength(10000) // Default is 10000, you can change it if you wish
+                    ->rows(4) // Default is 4, you can change it if you wish
+            )     
+            ->add('Box_abouts', 'tabs', [
+                'fields' => $fields,
+                'shortcode_attributes' => $attributes,
+                'min'=>1,
+                'max'=>3,
+            ])      
+            ->withCaching(false)
+        ;
+    });
     ShortcodeFacade::setPreviewImage('gioi-thieu-vp', Theme::asset()->url('https://traihomvanphuoc.b-cdn.net/shortcode/gioi-thieu/988cfc74-5801-4a13-8bac-9859da1c6fec.webp'));
     //gói hoả táng dịch vụ
 
