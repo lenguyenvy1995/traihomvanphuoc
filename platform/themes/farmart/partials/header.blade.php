@@ -254,7 +254,7 @@
             }
         }
         .svg-icon svg{
-            fill:#fff;
+            fill:#c6931f;
         }
         /* Hoa bên trái */
         .intro-badge::before {
