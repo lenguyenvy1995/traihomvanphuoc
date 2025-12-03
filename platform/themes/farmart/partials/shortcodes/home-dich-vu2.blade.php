@@ -4,7 +4,7 @@
 
 <div class="home-van-chuyen container-xxxl py-4">
     <div class="intro-title">
-        <h3 class="intro-badge">{{ $shortcode->title ?? 'DỊCH VỤ' }}</h3>
+        <h3 class="intro-badge">{{ $shortcode->title ?? __('Service') }}</h3>
 
     </div>
     <div class="row align-items-center {{ $position === 'right' ? 'flex-row-reverse' : '' }}">
