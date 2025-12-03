@@ -63,16 +63,20 @@
         .header .header-bottom .menu>li>a {
             color: #fff;
         }
-        #footer{
-         background: linear-gradient(135deg, #ebd695, #caae5a);
+
+        #footer {
+            background: linear-gradient(135deg, #ebd695, #caae5a);
 
         }
-        #footer p{
-            color: #000;
-        }  
-        #footer a{
+
+        #footer p {
             color: #000;
         }
+
+        #footer a {
+            color: #000;
+        }
+
         /* van phuoc 1 */
 
         .vp-section {
@@ -193,16 +197,20 @@
                 margin-bottom: 16px;
             }
         }
-        .blog-page-content .post-item-wrapper .card{
+
+        .blog-page-content .post-item-wrapper .card {
             background-color: unset;
         }
-        .post-item-small{
+
+        .post-item-small {
             background-color: unset;
 
         }
-        .entry-description p{
-            color:#000;
+
+        .entry-description p {
+            color: #000;
         }
+
         /* giới thiệu */
         .intro-section {
             border-radius: 16px;
@@ -253,9 +261,11 @@
                 height: 80px !important;
             }
         }
-        .svg-icon svg{
-            fill:#c6931f;
+
+        .svg-icon svg {
+            fill: #c6931f;
         }
+
         /* Hoa bên trái */
         .intro-badge::before {
             content: "";
@@ -420,7 +430,8 @@
     </style>
 </head>
 
-<body {!! Theme::bodyAttributes() !!} style="background-image: url('https://traihomvanphuoc.b-cdn.net/./152e580b-576c-4aed-9e45-b2be9d3ddd49.webp')">
+<body {!! Theme::bodyAttributes() !!}
+    style="background-image: url('https://traihomvanphuoc.b-cdn.net/./152e580b-576c-4aed-9e45-b2be9d3ddd49.webp')">
     @if (theme_option('preloader_enabled', 'yes') == 'yes')
         {!! Theme::partial('preloader') !!}
     @endif
@@ -678,8 +689,8 @@
                                 'options' => ['class' => 'menu'],
                             ]) !!}
                         </div>
-                        {{-- <div class="navigation__right">
-                            @if (is_plugin_active('ecommerce') && EcommerceHelper::isEnabledCustomerRecentlyViewedProducts())
+                        <div class="navigation__right">
+                            {{-- @if (is_plugin_active('ecommerce') && EcommerceHelper::isEnabledCustomerRecentlyViewedProducts())
                                 <div
                                     class="header-recently-viewed"
                                     data-url="{{ route('public.ajax.recently-viewed-products') }}"
@@ -705,8 +716,11 @@
                                         </div>
                                     </div>
                                 </div>
+                            @endif --}}
+                            @if (is_plugin_active('language'))
+                                {!! Theme::partial('language-switcher') !!}
                             @endif
-                        </div> --}}
+                        </div>
                     </div>
                 </nav>
             </div>
