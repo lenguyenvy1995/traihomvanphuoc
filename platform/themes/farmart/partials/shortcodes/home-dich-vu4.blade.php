@@ -18,14 +18,15 @@
                
                    {{-- Cột nội dung --}}
                    <div class="col-12 col-md-7 d-flex flex-column justify-content-center text-center text-md-start">
-                       <h4 class="mb-2 fw-bold text-warning text-uppercase p-1 p-md-4 ">
-                           <a href="{{ $item['url'] ?? '#' }}" class="text-warning text-decoration-none">
-                               {{ $item['title'] }}
-                           </a>
-                       </h4>
-               
+                        @if( $item['title'])
+                        <h4 class="mb-2 fw-bold text-warning text-uppercase p-1 p-md-3 text-center">
+                            <a href="{{ $item['url'] ?? '#' }}" class="text-warning text-decoration-none">
+                                {{ $item['title'] }}
+                            </a>
+                        </h4>
+                        @endif
                        @if (!empty($item['content']))
-                           <p class="text-muted mb-0 p-1" style="font-size:20px;">
+                           <p class="text-muted mb-0 p-2" style="font-size:20px;">
                                {!! BaseHelper::clean(Str::limit($item['content'], 120)) !!}
                            </p>
                        @endif
