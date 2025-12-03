@@ -17,7 +17,7 @@ class PublicController extends Controller
     {
         $items = Obituary::where('status', 'published')
             ->latest()
-            ->get();
+            ->paginate(6);
             return Theme::scope('obituary.index', compact('items'))->render();
     }
 }
