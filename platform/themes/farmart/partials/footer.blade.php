@@ -255,8 +255,9 @@
         @endif
     </div>
 </div>
-<div class="footer-mobile" @if (theme_option('bottom_bar_menu_show_text', 'yes') != 'yes') data-hide-text="true" @endif
+<div class="footer-mobile @if (theme_option('bottom_bar_menu_show_text', 'yes') != 'yes') d-none @endif" @if (theme_option('bottom_bar_menu_show_text', 'yes') != 'yes') data-hide-text="true"  @endif
     style="--bottom-bar-menu-text-font-size: {{ theme_option('bottom_bar_menu_text_font_size', 11) }}px;">
+    {{ theme_option('bottom_bar_menu_show_text', 'yes') }}
     <ul class="menu--footer">
         <li>
             <a href="{{ BaseHelper::getHomepageUrl() }}">
