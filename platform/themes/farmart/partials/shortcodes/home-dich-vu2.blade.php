@@ -18,7 +18,7 @@
         </div>
 
         <div class="col-md-6">
-            <h5 class="fw-bold text-uppercase p-3">
+            <h5 class="fw-bold text-uppercase p-3 text-center">
                 {{ $shortcode->title2 }}
             </h5>
             <p class="mb-3" style="color:#000; font-size: 18px;">
