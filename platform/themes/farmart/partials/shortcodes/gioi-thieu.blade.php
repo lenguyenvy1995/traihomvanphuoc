@@ -15,7 +15,7 @@
                 @foreach($box_abouts as $index => $item)
                     <div class="intro-card">
                         <h5>{{  $item['title'] }}</h5>
-                        <p>Là công ty cung cấp dịch vụ tang lễ trọn gói chuyên nghiệp tại thị trường Việt Nam.</p>
+                        <p>{{  $item['content'] }}</p>
                     </div>
                 @endforeach
             </div>
