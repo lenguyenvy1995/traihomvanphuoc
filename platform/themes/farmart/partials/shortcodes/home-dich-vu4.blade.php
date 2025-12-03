@@ -18,7 +18,7 @@
                
                    {{-- Cột nội dung --}}
                    <div class="col-12 col-md-7 d-flex flex-column justify-content-center text-center text-md-start">
-                       <h4 class="mb-2 fw-bold text-warning text-uppercase p-4">
+                       <h4 class="mb-2 fw-bold text-warning text-uppercase p-1 p-md-4 ">
                            <a href="{{ $item['url'] ?? '#' }}" class="text-warning text-decoration-none">
                                {{ $item['title'] }}
                            </a>
