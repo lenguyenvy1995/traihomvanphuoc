@@ -8,19 +8,19 @@
                 @endif
 
                 @if (theme_option('address'))
-                    <p class="mb-1"><strong>Địa chỉ:</strong> {{ theme_option('address') }}</p>
+                    <p class="mb-1"><strong>{{ __('Address') }}:</strong> {{ theme_option('address') }}</p>
                 @endif
 
                 @if (theme_option('address2'))
-                    <p class="mb-1"><strong>Chi nhánh:</strong> {{ theme_option('address2') }}</p>
+                    <p class="mb-1"><strong>{{ __('Branch') }}:</strong> {{ theme_option('address2') }}</p>
                 @endif
 
                 @if (theme_option('hotline'))
-                    <p class="mb-1"><strong>Điện thoại 1:</strong> {{ theme_option('hotline') }}</p>
+                    <p class="mb-1"><strong>{{ __('Phone') }} 1:</strong> {{ theme_option('hotline') }}</p>
                 @endif
 
                 @if (theme_option('hotline2'))
-                    <p class="mb-1"><strong>Điện thoại 2:</strong> {{ theme_option('hotline2') }}</p>
+                    <p class="mb-1"><strong>{{ __('Phone') }} 2:</strong> {{ theme_option('hotline2') }}</p>
                 @endif
 
                 @if (theme_option('email'))
