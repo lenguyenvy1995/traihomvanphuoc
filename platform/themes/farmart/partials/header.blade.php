@@ -742,9 +742,9 @@
                 </div>
             </div>
             <div class="header-items-mobile header-items-mobile--center">
-                <div class="logo">
+                <div class="logo" style="transform: scale(1.6);transform-origin: center center;">
                     <a href="{{ BaseHelper::getHomepageUrl() }}">
-                        {!! Theme::getLogoImage(['style' => 'max-height: 45px']) !!}
+                        {!! Theme::getLogoImage(['style' => 'max-height: 45px;']) !!}
                     </a>
                 </div>
             </div>
