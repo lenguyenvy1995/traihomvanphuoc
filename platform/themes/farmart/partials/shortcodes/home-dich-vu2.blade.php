@@ -2,7 +2,7 @@
     $position = $shortcode->position ?? 'left';
 @endphp
 
-<div class="home-van-chuyen container-xxxl py-4">
+<div class="home-van-chuyen container-xxxl py-4" style="overflow: hidden">
     <div class="intro-title">
         <h3 class="intro-badge">{{ $shortcode->title ?? __('Service') }}</h3>
 

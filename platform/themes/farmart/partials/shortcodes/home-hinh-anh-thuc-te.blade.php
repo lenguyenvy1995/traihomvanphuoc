@@ -1,4 +1,4 @@
-<section class="py-5 text-center">
+<section class="py-5 text-center" style="overflow: hidden">
     <div class="container-xxxl">
         <h3 class="fw-bold text-uppercase d-inline-block px-4 py-2 rounded-pill bg-warning text-white shadow-sm mb-4">
            {{ __('Real Photos') }}

@@ -1,4 +1,4 @@
-<div class="section-vp1">
+<div class="section-vp1" style="overflow: hidden">
     <div class="container-xxxl">
         <section class="vp-section">
           <div class="row g-4 align-items-stretch">

@@ -1,5 +1,5 @@
 <section class="dich-vu-mai-tang py-5">
-    <div class="container-xxxl text-center">
+    <div class="container-xxxl text-center" style="overflow: hidden">
         @if ( $shortcode->title)
             <div class="intro-title">
                 <h3 class="intro-badge">{{ $shortcode->title ?? 'DỊCH VỤ' }}</h3>

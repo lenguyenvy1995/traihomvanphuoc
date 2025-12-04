@@ -1,4 +1,4 @@
-<div class="section-vp1">
+<div class="section-vp1" style="overflow: hidden">
     <div class="container-xxxl">
         <div class="intro-title">
             <h3 class="intro-badge">{{ __('About Us') }}</h3>

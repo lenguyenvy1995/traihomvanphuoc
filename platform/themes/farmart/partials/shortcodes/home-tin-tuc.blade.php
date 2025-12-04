@@ -1,4 +1,4 @@
-<section class="news-section py-5 ">
+<section class="news-section py-5 " style="overflow: hidden">
     <div class="container">
         <div class="text-center mb-4">
             <div class="intro-title">

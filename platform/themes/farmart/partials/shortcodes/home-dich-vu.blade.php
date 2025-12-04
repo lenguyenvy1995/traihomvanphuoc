@@ -1,4 +1,4 @@
-<section class="service-list container-xxxl py-5">
+<section class="service-list container-xxxl py-5" style="overflow: hidden">
     <div class="intro-title">
         <h3 class="intro-badge">{{ $shortcode->title??'DỊCH VỤ' }}</h3>
 

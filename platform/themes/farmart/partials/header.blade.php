@@ -50,9 +50,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
 
     <style>
-        .container-xxxl{
-            overflow: hidden;
-        }
+    
         .section-content.section-content__slider .section-slides-wrapper .slide-item .slide-item__image {
             background-color: none;
             height: auto;
