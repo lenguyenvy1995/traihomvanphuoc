@@ -4,6 +4,7 @@ namespace Botble\Obituary\Http\Controllers;
 use Illuminate\Routing\Controller;
 use Botble\Obituary\Models\Obituary;
 use Botble\Theme\Facades\Theme;
+use Botble\Language\Facades\Language;
 
 class PublicController extends Controller
 {

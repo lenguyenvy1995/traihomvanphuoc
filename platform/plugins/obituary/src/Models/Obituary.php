@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Botble\Base\Models\BaseModel;
 use Botble\Base\Models\Concerns\HasSlug;
+use Botble\LanguageAdvanced\Models\LanguageMeta;
 
 class Obituary extends BaseModel
 {
@@ -39,5 +40,9 @@ class Obituary extends BaseModel
     public function condolences()
     {
         return $this->hasMany(ObituaryCondolence::class);
+    }
+    public function translations()
+    {
+        return $this->hasMany(ObituaryTranslation::class);
     }
 }
