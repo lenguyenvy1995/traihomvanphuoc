@@ -3,7 +3,7 @@
         <div class="text-center mb-4">
             <div class="intro-title">
                 <h3 class="intro-badge">{{ __('Newest News') }}</h3>
-    
+
             </div>
         </div>
 
@@ -11,48 +11,24 @@
             <div class="row align-items-start g-4">
                 <!-- Bài viết nổi bật (bài đầu tiên) -->
                 @php
-                    $featured = $posts->first();
-                    $others = $posts->skip(1)->take(8);
+                    $others = $posts->take(4);
                 @endphp
-
-                <div class="col-lg-6">
-                    <div class="news-featured">
-                        <a href="{{ $featured->url }}">
-                            <img
-                            class="lazyload img-fluid rounded-4 shadow mb-3 w-10"
-                            data-src="{{ RvMedia::getImageUrl($featured->image, 'medium', false, RvMedia::getDefaultImage()) }}"
-                            src="{{ image_placeholder($featured->image) }}"
-                            alt="{{ $featured->name }}"
-                        >
-                        </a>
-                        <h5 class="fw-bold text-uppercase">
-                            <a href="{{ $featured->url }}" class="text-dark text-decoration-none">
-                                {{ $featured->name }}
+                @foreach ($others as $post)
+                    <div class="col-lg-3">
+                        <div class="news-featured">
+                            <a href="{{ $post->url }}">
+                                <img class="lazyload img-fluid rounded-4 shadow mb-3 w-10"
+                                    data-src="{{ RvMedia::getImageUrl($post->image, 'medium', false, RvMedia::getDefaultImage()) }}"
+                                    src="{{ image_placeholder($post->image) }}" alt="{{ $post->name }}">
                             </a>
-                        </h5>
-                        <p class="mb-0 text-secondary">
-                            {!! Str::limit(strip_tags($featured->description), 200) !!}
-                        </p>
+                            <h6 class="fw-bold text-uppercase text-center">
+                                <a href="{{ $post->url }}" class="text-dark text-decoration-none">
+                                    {{ $post->name }}
+                                </a>
+                            </h6>
+                        </div>
                     </div>
-                </div>
-
-                <!-- Danh sách bài viết bên phải -->
-                <div class="col-lg-6">
-                    <div class="news-list">
-                        @foreach ($others as $post)
-                            <div class="news-item mb-3 pb-3 border-bottom">
-                                <h6 class="fw-bold text-uppercase mb-1">
-                                    <a href="{{ $post->url }}" class="text-dark text-decoration-none">
-                                        {{ $post->name }}
-                                    </a>
-                                </h6>
-                                <p class="mb-0 text-muted small">
-                                    {!! Str::limit(strip_tags($post->description), 120) !!}
-                                </p>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
+                @endforeach
             </div>
         @endif
     </div>
