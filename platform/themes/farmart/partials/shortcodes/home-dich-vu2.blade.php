@@ -26,7 +26,7 @@
             </p>
             @if ($shortcode->url)
                 <a href="{{ $shortcode->url }}" class="btn btn-warning rounded-pill px-4 fw-semibold">
-                    Xem thêm
+                    {{ __('View All') }}
                 </a>
             @endif
         </div>
