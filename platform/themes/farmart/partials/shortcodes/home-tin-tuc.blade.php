@@ -14,7 +14,7 @@
                     $others = $posts->take(4);
                 @endphp
                 @foreach ($others as $post)
-                    <div class="col-lg-3">
+                    <div class="col-6 col-lg-3">
                         <div class="news-featured">
                             <a href="{{ $post->url }}">
                                 <img class="lazyload img-fluid rounded-4 shadow mb-3 w-10"
