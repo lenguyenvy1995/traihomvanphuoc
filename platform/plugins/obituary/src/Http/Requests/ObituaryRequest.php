@@ -22,7 +22,7 @@ class ObituaryRequest extends Request
             'date_of_death' => 'nullable|date',
             'place' => 'nullable|string|max:255',
             'status' => 'required|in:published,draft,pending',
-            'accouxnt_holder' => 'nullable|string|max:191',
+            'account_holder' => 'nullable|string|max:191',
             'bank_name' => 'nullable|string|max:191',
             'account_number' => 'nullable|string|max:191',
             'wreath' => 'nullable|string|max:191',
