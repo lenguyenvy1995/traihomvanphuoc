@@ -49,6 +49,11 @@ class ObituaryForm extends FormAbstract
                 'attr' => [
                     'placeholder' => 'Nhập Số tài khoản',
                 ],
+            ])     ->add('place', TextField::class, [
+                'label' => 'Số Điện Thoại ',
+                'attr' => [
+                    'placeholder' => 'Nhập Số Điện Thoại',
+                ],
             ])
          
             ->add('wreath', TextField::class, [

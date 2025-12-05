@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cáo Phó - {{ $obituary->name }}</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>{{ __('obituary')}} - {{ $obituary->name }}</title>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/css/lightgallery-bundle.min.css">
     <style>
         body {
@@ -101,27 +102,47 @@
                     </a>
                 </div>
             @endif
-            <div class="bank-info mt-4">
-                <h5 class="text-warning mb-3">THÔNG TIN TÀI KHOẢN PHÚNG ĐIẾU</h5>
-                @if ($obituary->account_holder)
-                    <p><strong>Chủ tài khoản:</strong> {{ $obituary->account_holder }}</p>
-                @endif
-                @if ($obituary->bank_name)
-                    <p><strong>Ngân hàng:</strong> {{ $obituary->bank_name }}</p>
-                @endif
-                @if ($obituary->account_number)
-                    <p><strong>Số tài khoản:</strong> <span
-                            id="account-number">{{ $obituary->account_number }}</span>
 
-                        <button id="copy-account-btn" class="btn btn-sm btn-outline-light ms-2"
-                            onclick="copyAccountNumber()">
-                            Copy
-                        </button>
-                    </p>
-                @endif
-            </div>
+
+         <!-- Button trigger modal -->
+                <!-- Modal -->
+                <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content" style="background-color:#000;">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">{{ __('Funeral Donation Account Information') }}</h1>
+                    </div>
+                    <div class="modal-body">
+                                    <div class="bank-info mt-4">
+                                        @if ($obituary->account_holder)
+                                            <p><strong>{{ __('Account Holder') }}:</strong> {{ $obituary->account_holder }}</p>
+                                        @endif
+                                        @if ($obituary->bank_name)
+                                            <p><strong>{{ __('Bank') }}:</strong> {{ $obituary->bank_name }}</p>
+                                        @endif
+                                        @if ($obituary->account_number)
+                                            <p><strong>{{__('Account Number')}}:</strong> <span
+                                                    id="account-number">{{ $obituary->account_number }}</span>
+
+                                                <button id="copy-account-btn" class="btn btn-sm btn-outline-light ms-2"
+                                                    onclick="copyAccountNumber()">
+                                                    Copy
+                                                </button>
+                                            </p>
+                                        @endif
+                                         @if ($obituary->place)
+                                            <p><strong>{{ __('Phone') }}:</strong><a href="tel: {{ $obituary->place }}"> {{ $obituary->place }}</a></p>
+                                        @endif
+                                    </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('Close')}}</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
             <div class="main">
-                <h3 class="mt-5 mb-5">LỜI CHIA BUỒN</h3>
+                <h3 class="mt-5 mb-5">{{ __('Heartfelt Condolences') }}</h3>
 
                 @if (session('success'))
                     <div class="alert alert-success">{{ session('success') }}</div>
@@ -133,10 +154,10 @@
 
 
                     <input type="text" name="name" class="form-control mb-3"
-                        placeholder="Vui lòng nhập tên của bạn">
-                    <textarea name="message" rows="4" class="form-control mb-3" placeholder="Vui lòng nhập nội dung chia buồn"></textarea>
+                        placeholder="{{ __('Please enter your name') }}">
+                    <textarea name="message" rows="4" class="form-control mb-3" placeholder="{{ __('Please write your condolence message...') }}"></textarea>
 
-                    <button type="submit" class="btn btn-dark w-100">Gửi Lời Chia Buồn</button>
+                    <button type="submit" class="btn btn-dark w-100">{{ __('Send') }}</button>
                 </form>
 
                 <hr>
@@ -152,9 +173,9 @@
             </div>
             <div class="button-wrap">
                 <div class="btn-group btn-group-obituary">
-                    <button type="button" class="btn">Phúng Điếu</button>
-                    <a href=" {{ $obituary->wreath }}" class="btn ">Vòng Hoa</a>
-                    <button type="button" class="btn" id="btnShare">Chia Sẻ</button>
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">{{__('Funeral Condolence Donation')}}</button>
+                    <a href=" {{ $obituary->wreath }}" class="btn "> {{__('Funeral Wreath')}}</a>
+                    <button type="button" class="btn" id="btnShare">{{ __('Share') }}</button>
                 </div>
                 <a href="" class="">MAI TÁNG ( TRẠI HÒM ) VẠN PHƯỚC</a>
             </div>
