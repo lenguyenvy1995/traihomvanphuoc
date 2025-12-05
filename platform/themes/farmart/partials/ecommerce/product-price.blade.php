@@ -5,7 +5,11 @@
             <span class="price-amount">
                 <bdi>
                     <span class="amount bb-product-price-text text-danger fw-bold" data-bb-value="product-price-none">
-                        {!! $product->price_none !!} 
+                       @if(app()->getLocale() == 'vi')
+                            Liên hệ
+                        @else
+                            Call now
+                        @endif
                     </span>
                 </bdi>
             </span>
