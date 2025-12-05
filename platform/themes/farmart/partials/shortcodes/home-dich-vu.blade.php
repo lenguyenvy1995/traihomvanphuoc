@@ -1,6 +1,6 @@
 <section class="service-list container-xxxl py-5" style="overflow: hidden">
     <div class="intro-title">
-        <h3 class="intro-badge">{{ $shortcode->title??'DỊCH VỤ' }}</h3>
+        <h3 class="intro-badge">{{ $shortcode->title??__('Service') }}</h3>
 
     </div>
     <div class="row align-items-center {{$shortcode->position=='left'?'flex-row-reverse':''}} ">
