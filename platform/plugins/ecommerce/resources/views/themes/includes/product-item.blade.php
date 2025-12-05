@@ -19,7 +19,7 @@
                 @include(EcommerceHelper::viewPath('includes.rating'))
             @endif
 
-            <div class="product-add-cart-btn-large-wrapper">
+            <div class="product-add-cart-btn-large-wrapper ">
                 @if (EcommerceHelper::isCartEnabled())
                     <button
                         type="button"

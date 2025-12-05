@@ -50,12 +50,12 @@
              style="max-height: 500px; overflow: hidden;">
             {!! BaseHelper::clean(Theme::get('pageDescription')) !!}
         </div>
-    
+
         <div class="text-center p-3">
             <button id="toggleContentBtn" 
                     class="btn btn-primary" 
                     style="padding: 8px 20px; border-radius: 8px;">
-                Xem thêm
+               {{ __('show more') }}
             </button>
         </div>
     </div>

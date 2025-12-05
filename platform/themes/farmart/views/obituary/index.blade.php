@@ -1,14 +1,13 @@
 @php
-    Theme::set('pageTitle', 'DANH SÁCH CÁO PHÓ');
+    Theme::set('pageTitle',__('obituaries') );
 
 @endphp
 
-<div class="container py-5">
+<div class="container py-1">
     <div class="row">
         @foreach ($items as $item)
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
-
                     {{-- Ảnh đại diện --}}
                     @if ($item->avatar)
                         <a href="{{ $item->url }}">

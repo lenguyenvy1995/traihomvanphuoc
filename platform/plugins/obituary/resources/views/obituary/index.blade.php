@@ -1,7 +1,7 @@
 @extends(Theme::getThemeNamespace() . '::layouts.master')
 
 @php
-    Theme::setTitle( __('obituaries'));
+    Theme::setTitle( 'gagag');
 @endphp
 
 @section('content')
@@ -9,7 +9,7 @@
 <section class="py-5">
     <div class="container">
 
-        <h2 class="mb-4 text-center">{{ __('obituaries') }} âf</h2>
+        <h2 class="mb-4 text-center">{{ __('obituaries') }} aggsg</h2>
 
         <div class="row">
             @foreach($items as $item)

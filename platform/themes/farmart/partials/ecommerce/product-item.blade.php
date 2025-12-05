@@ -1,7 +1,7 @@
 <div class="product-thumbnail">
     <a
         class="product-loop__link img-fluid-eq"
-        href="{{ $product->url }}"
+        href="{{ Language::localizeURL($product->url) }}"
         tabindex="0"
     >
         <div class="img-fluid-eq__dummy"></div>
@@ -53,7 +53,7 @@
         @endif
         <h3 class="product__title">
             <a
-                href="{{ $product->url }}"
+                href="{{ Language::localizeURL($product->url) }}"
                 tabindex="0"
             >{{ $product->name }}</a>
         </h3>
@@ -93,7 +93,7 @@
             </div>
         @endisset
 </div>
-<div class="product-bottom-box">
+{{-- <div class="product-bottom-box">
     {!! Theme::partial('ecommerce.product-cart-form', compact('product')) !!}
-</div>
+</div> --}}
 </div>
